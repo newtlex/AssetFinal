@@ -58,8 +58,17 @@ if ($_POST) {
   $typeAccesory    =$_POST['typeAccesory'];
 
   $detail    =$_POST['detail'];
+  $Oldowner  =$_POST['Oldowner'];
+  $newOwnerID =$_POST['newOwner'];
+  echo "<br> Oldowner $Oldowner<br> ";
+  if($Oldowner!=0)
+  {
+    $sql = "UPDATE owner
+            set endDate = CURRENT_TIME
+            where ownerID = '$Oldowner'";
+    $rs = mysqli_query($link,$sql);
 
-
+  }
 
   if($id == null){
     if($assetType==1) //computer
@@ -134,11 +143,18 @@ else if($assetType==5){
     $rs = mysqli_query($link,$sql);
     $id = mysqli_insert_id($link);
     echo "ID $id";
+      if($adminID)
+      {
+        $sql= "INSERT INTO owner (adminID,assetID,startDate)
+                VALUES ('$adminID','$id',CURRENT_TIME)";
+        $rs = mysqli_query($link,$sql);
+      }
+
     include ("sql-upload.php");
 
-     echo "<script>alert('เพิ่มข้อมูลเรียบร้อย');
+  /*   echo "<script>alert('เพิ่มข้อมูลเรียบร้อย');
         window.location.href = 'main.php';
-      </script>";
+      </script>";*/
     }
   else {
     if($assetType==1) //computer
@@ -214,11 +230,18 @@ else if($assetType==5){
     assetStatus='$assetStatus',assetVendor='$assetVendor',assetSN ='$assetSN'
     WHERE assetID = '$id'";
     $rs = mysqli_query($link,$sql);
+    if($newOwnerID!="0")
+    {
+      $sql= "INSERT INTO owner (ownerID,adminID,assetID,startDate)
+              VALUES ('','$newOwnerID','$id',CURRENT_TIME)";
+      $rs = mysqli_query($link,$sql);
+    }
+
     include ("sql-upload.php");
 
-   echo "<script>alert('แก้ไขข้อมูล ID : $id เรียบร้อย');
+   /*echo "<script>alert('แก้ไขข้อมูล ID : $id เรียบร้อย');
       window.location.href = 'main.php';
-    </script>";
+    </script>";*/
   }
 
 

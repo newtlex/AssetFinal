@@ -29,6 +29,13 @@ function  testCheck()
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="report" value="1"> รายงานอุปกรณ์
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="report" value="2"> รายงานการแจ้งซ่อม
+                  </label>
+                  <br>
                   <input class="form-control" type="text" name="search" placeholder="ค้นหาจาก.....">
                   <label>
                     <input type="checkbox" name="selectDate" id='timeCheck'> เลือกช่วงเวลา

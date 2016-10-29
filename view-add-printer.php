@@ -81,6 +81,46 @@ $imageName = "blankImage.png";
           <input class="form-control input-sm" type="date" name="enddate" value="<?php echo "{$data2['assetExpire']}"; ?>">
         </div>
       </div>
+
+      <div class="form-group">
+        <label  class="col-md-4">ผู้ใช้</label>
+        <div class="col-md-7">
+          <select class="form-control input-sm" name="newOwner">
+
+              <?php
+              $sql = "SELECT * FROM `owner` WHERE `startDate` = (SELECT MAX(`startDate`)
+                                           from owner
+                                           where `assetID`= '$id')";
+              $rs = mysqli_query($link, $sql);
+              if($rs!=null){
+                    $dataOwner = mysqli_fetch_array($rs);
+
+              }
+
+
+              $sql = "SELECT * FROM admin";
+              $rs = mysqli_query($link, $sql);
+              while($dataAdmin = mysqli_fetch_array($rs)){
+                    if($dataAdmin['admin_id']==$dataOwner['adminID']){
+                        echo "<option value=".$dataAdmin['admin_id']." selected='selected'>".$dataAdmin['admin_fname']."</option>";
+                    }else if ($dataOwner['adminID']==null){
+                        echo "<option value="."0"." selected='selected'>"."เลือกผู้ใช้"."</option>";
+                        $dataOwner['adminID'] ="0";
+                    }
+
+                    else{
+                        echo "<option value=".$dataAdmin['admin_id'].">".$dataAdmin['admin_fname']."</option>";
+                    }
+              }
+
+              ?>
+          </select>
+
+          <input type="hidden" name="Oldowner" value="<?php echo "{$dataOwner['ownerID']}"; ?>">
+        </div>
+      </div>
+
+
       <div class="form-group">
         <label class="col-md-4 ">พอร์ต</label>
         <div class="col-md-2">

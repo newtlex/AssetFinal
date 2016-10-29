@@ -269,4 +269,5 @@ $imageName = "blankImage.png";
 
 <script type="text/javascript" src="scriptImage.js">
 
+ 
 </script>

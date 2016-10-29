@@ -143,12 +143,12 @@ else if($assetType==5){
     $rs = mysqli_query($link,$sql);
     $id = mysqli_insert_id($link);
     echo "ID $id";
-      if($adminID)
-      {
-        $sql= "INSERT INTO owner (adminID,assetID,startDate)
-                VALUES ('$adminID','$id',CURRENT_TIME)";
-        $rs = mysqli_query($link,$sql);
-      }
+    if($newOwnerID!="0")
+    {
+      $sql= "INSERT INTO owner (ownerID,adminID,assetID,startDate)
+              VALUES ('','$newOwnerID','$id',CURRENT_TIME)";
+      $rs = mysqli_query($link,$sql);
+    }
 
     include ("sql-upload.php");
 

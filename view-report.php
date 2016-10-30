@@ -20,33 +20,29 @@ function  testCheck()
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <form>
+      <form action= "sql-report.php" method = "post" >
         <div class="panel panel-danger">
           <div class="panel-heading">
             <h3 class="panel-title">Report</h3>
           </div>
           <div class="panel-body">
             <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
+              <div id="alldiv" class="col-md-4">
+                <div class="form-group" >
                   <label class="radio-inline">
-                    <input type="radio" name="report" value="1"> รายงานอุปกรณ์
+                    <input type="radio" name="report"  onchange="selectReport();" value="1"> รายงานอุปกรณ์
                   </label>
                   <label class="radio-inline">
                     <input type="radio" name="report" value="2"> รายงานการแจ้งซ่อม
                   </label>
                   <br>
-                  <input class="form-control" type="text" name="search" placeholder="ค้นหาจาก.....">
                   <label>
-                    <input type="checkbox" name="selectDate" id='timeCheck'> เลือกช่วงเวลา
+                    <input type="checkbox" name="selectDate"   id="timeCheckbox" onclick="timeCheck()"> เลือกช่วงเวลา
                   </label>
-                  <p onclick="testCheck();">
-                    test
-                  </p>
                   <div class="input-group">
-                    <input type="date" name="date" class="form-control">
+                    <input  id = "Date" type="date" name="startDate" class="form-control" disabled >
                     <span class="input-group-addon"> To </span>
-                    <input type="date" name="date" class="form-control">
+                    <input  id = "endDate" type="date" name="enddate" class="form-control" disabled>
                   </div>
                   <br>
                   <label>
@@ -103,10 +99,9 @@ function  testCheck()
                       ช่าง2
                     </option>
                   </select>
-
-
-
+                  <button type="summit" name="button"> summit</button>
                 </div> <!-- form-group -->
+
               </div> <!-- col-md-4 -->
 
 
@@ -157,3 +152,21 @@ function  testCheck()
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  function timeCheck(){
+    var x = document.getElementById("timeCheckbox").checked;
+ if(x){
+    document.getElementById("Date").disabled = false;
+    document.getElementById("endDate").disabled = false;
+  }
+  else{
+     document.getElementById ("Date").disabled = true;
+     document.getElementById("endDate").disabled = true;
+   }
+
+   };
+   $("#hide").click(function(){
+    $("alldiv").hide();
+});
+
+</script>

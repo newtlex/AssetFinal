@@ -57,14 +57,16 @@ $imageName = "blankImage.png";
         <div class="col-md-7">
           <input class="form-control input-sm" type="date" name="startdate"
           value="<?php
-          if(isset($id)){
-            echo "{$data2['assetDate']}";
-          }
-          else
-          {
-            echo date("Y-m-d");
-          }
-
+          $time = strtotime($data2['assetDate']);
+          $myFormatForView = date("Y-m-d", $time);
+          // $myFormatForView is something like: 01/31/14 1:05 PM
+           if(isset($id)){
+             echo "$myFormatForView";
+           }
+           else
+           {
+             echo date("Y-m-d");
+           }
           ?>">
         </div>
       </div>

@@ -139,8 +139,12 @@ $imageName = "blankImage.png";
         <div class="col-md-7">
           <input class="form-control input-sm" type="date" name="startdate"
           value="<?php
+          // $datetime is something like: 2014-01-31 13:05:59
+         $time = strtotime($data2['assetDate']);
+         $myFormatForView = date("Y-m-d", $time);
+         // $myFormatForView is something like: 01/31/14 1:05 PM
           if(isset($id)){
-            echo "{$data2['assetDate']}";
+            echo "$myFormatForView";
           }
           else
           {
@@ -269,5 +273,5 @@ $imageName = "blankImage.png";
 
 <script type="text/javascript" src="scriptImage.js">
 
- 
+
 </script>

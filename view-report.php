@@ -10,7 +10,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <form  action="sql-report.php" method = "POST">
+      <form  class="" method="post">
         <div class="panel panel-danger">
           <div class="panel-heading">
             <h3 class="panel-title">Report</h3>
@@ -20,6 +20,7 @@
               <div id="reportdiv" class="col-md-4">
                 <div class="form-group">
                   <label class="radio-inline">
+
                     <input type="radio" name="report"   value="1" > รายงานอุปกรณ์
                   </label>
                   <label class="radio-inline">
@@ -43,13 +44,12 @@
                   <br>
 
                   <label>
-                    <input type="checkbox" name="selectDate" id="timeCheckbox"> เลือกช่วงเวลา
+                    เลือกช่วงเวลาที่เพิ่มอุปกรณ์
                   </label>
                   <div class="input-group">
-                    <input  id = "Date" type="date" name="assetStartDate" class="form-control"
-                  >
+                    <input   type="date" name="assetDateStart" class="form-control">
                     <span class="input-group-addon"> To </span>
-                    <input  id = "endDate" type="date" name="assetEndDate" class="form-control"
+                    <input   type="date" name="assetDateEnd" class="form-control"
                     value="<?php
                     $time = strtotime("2017-10-5");
                    $myFormatForView = date("Y-m-d", $time);
@@ -58,7 +58,15 @@
                   </div>
                   <br>
                   <label>
-                    <input type="checkbox" name="selectStatus"> เลือกจากสถานะอุปกรณ์
+                  เลือกช่วงเวลาทอุปกรณ์หมดประกัน
+                  </label>
+                  <div class="input-group">
+                    <input  type="date" name="expireDateStart" class="form-control">
+                    <span class="input-group-addon"> To </span>
+                    <input  type="date" name="expireDateEnd" class="form-control">
+                  </div>
+                  <label>
+                   เลือกจากสถานะอุปกรณ์
                   </label>
                   <select class="form-control" name="assetStatus">
                     <option value="0">เลือก</option>
@@ -66,7 +74,7 @@
                   </select>
                   <br>
                   <label>
-                    <input type="checkbox" name="selectType"> เลือกจากชนิดอุปกรณ์
+                     เลือกจากชนิดอุปกรณ์
                   </label>
                   <select class="form-control" name="assetType">
                         <option value="0">เลือก</option>
@@ -77,7 +85,7 @@
 
 
                   <label>
-                    <input type="checkbox" name="selectVendor"> เลือกจากผู้ผลิต
+                  ลือกจากผู้ผลิต
                   </label>
                   <select class="form-control" name="assetVendor">
                     <option value="0">
@@ -93,7 +101,7 @@
 
 
                 </div> <!-- form-group -->
-                <button type="submit" name="button"> summit</button>
+<button id = 'submitButton' type =""  name="button"> submit</button>
               </div> <!-- col-md-4 -->
 
               <div id="maintainDiv"   >
@@ -123,7 +131,6 @@
                   <select class="form-control" name="status">
                     <option value="0">เลือก</option>
                     <?php
-
                     ?>
                   </select>
                   <br>
@@ -163,44 +170,17 @@
 
 
                 </div> <!-- form-group -->
-                <button type="button" name="button"> submit</button>
+          <button id = 'submitButton' type =""  name="button"> submit</button>
               </div> <!-- col-md-4 -->
+
            </div>
 
 
               <div class="col-md-8">
-                <h1>ตัวอย่าง</h1>
-                <table class="table table-bordered" id="colshow">
-                  <caption\>ข้อมูลองาน</caption>
-                  <thead>
-                    <tr>
-                      <th>
-                        ID งาน
-                      </th>
-                      <th>
-                        ID อุปกรณ์
-                      </th>
-                      <th>
-                        รายการ
-                      </th>
-                      <th>
-                        วันที่แจ้งเข้ามา
-                      </th>
-                      <th>
-                        รายละเอียด
-                      </th>
-                      <th>
-                        ช่าง
-                      </th>
-                      <th>
-                        สถานะ
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php include('list-maintain.php'); ?>
-                  </tbody>
-                </table>
+              <div id = "body">
+
+                 </div>
+
               </div>
 
             </div> <!-- row -->
@@ -216,24 +196,33 @@
   </div>
 </div>
 <script type="text/javascript">
+$( "form" ).on( "submit", function( event ) {
+  event.preventDefault();
+  console.log( $( this ).serialize() );
+  $.ajax({
+  url: 'sql-report.php',
+  type: 'POST',
+  dataType: 'text',
+  data:$( this ).serialize(),
+  success : callback
+  });
+});
 $(document).ready(function(){
-    $("#maintainReport").change(function(){
-      $("#reportdiv").hide();
-      $("#maintainDiv").show();
-
-
-      });
-      $("#assetReport").change(function(){
-        $("#reportdiv").show();
-        $("#maintainDiv").hide();
-
-            });
-    });
-
+  $("#maintainReport").change(function(){
+    $("#reportdiv").hide();
+    $("#maintainDiv").show();
+  });
+  $("#assetReport").change(function(){
+    $("#reportdiv").show();
+    $("#maintainDiv").hide();
+  });
+});
+function callback(result){
+  $("#body").html(result);
+}
 function maintainDivhidden(){
   $("#maintainDiv").hide();
 }
-
   function timeCheck(){
     var x = document.getElementById("timeCheckbox").checked;
  if(x){
@@ -244,7 +233,5 @@ function maintainDivhidden(){
      document.getElementById ("Date").disabled = true;
      document.getElementById("endDate").disabled = true;
    }
-
    };
-
 </script>

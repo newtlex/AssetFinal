@@ -2,15 +2,16 @@
 
 if ($_POST) {
 
-  include('connect.php');
-$startDate = $_POST['assetStartDate'];
-$enddate = $_POST['assetEndDate'];
+include('connect.php');
+
+$assetDateStart = $_POST['assetDateStart'];
+$assetDateEnd = $_POST['assetDateEnd'];
+$expireDateStart = $_POST['expireDateStart'];
+$expireDateEnd =  $_POST['expireDateEnd'];
 $assetType = $_POST['assetType'];
 $assetVendor = $_POST['assetVendor'];
 $assetstatus = $_POST['assetStatus'];
 
-//echo "assetStatus $assetstatus<br >";
-//echo "assetType $assetType<br >";
 if($assetstatus=="0"){
   $searchStatus = '';
 }
@@ -29,14 +30,23 @@ if($assetVendor=="0"){
 else {
   $searchAssetVendor = " AND assetVendor='$assetVendor'";
 }
-if($startDate==0){
-  $searchStartDate = '';
+if($assetDateStart==null||$assetDateEnd==null){
+  $searchAssetDate = '';
 
 }
 else {
-  $searchStartDate = " AND (STR_TO_DATE(assetDATE,'%Y-%m-%d')
-  BETWEEN STR_TO_DATE('$startDate', '%Y-%m-%d')
-  AND STR_TO_DATE('$enddate', '%Y-%m-%d'))";
+  $searchAssetDate = " AND (STR_TO_DATE(assetDATE,'%Y-%m-%d')
+  BETWEEN STR_TO_DATE('$assetDateStart', '%Y-%m-%d')
+  AND STR_TO_DATE('$assetDateEnd', '%Y-%m-%d'))";
+}
+if($expireDateStart==null||$expireDateEnd==null){
+  $searchExpireDate = '';
+
+}
+else {
+  $searchExpireDate = " AND (STR_TO_DATE(assetExpire,'%Y-%m-%d')
+  BETWEEN STR_TO_DATE('$expireDateStart', '%Y-%m-%d')
+  AND STR_TO_DATE('$expireDateEnd', '%Y-%m-%d'))";
 }
 
 //echo "searchStatus $searchStatus<br >";
@@ -65,7 +75,8 @@ AND assetStatus=statusID
 $searchStatus
 $searchAssetType
 $searchAssetVendor
-$searchStartDate ";
+$searchAssetDate
+$searchExpireDate";
 
 $rs =mysqli_query($link, $sql);
 
@@ -91,7 +102,14 @@ echo "<tr>";
        echo "<td>";
        echo "$myFormatForView";
        echo "</td>";
-     }else {
+     }else if ($value=='assetExpire') {
+       $time = strtotime($data['assetExpire']);
+       $myFormatForView = date("Y-m-d", $time);
+       echo "<td>";
+       echo "$myFormatForView";
+       echo "</td>";
+     }
+     else {
         $temp = $data[$value];
         echo "<td>";
         echo "$temp";
@@ -117,22 +135,6 @@ echo "</table>";
 
 
 
-
-
-
-
-
-
-
-
-
-      /*echo "
-      <script>
-      setTimeout(function(){
-      window.location.href = \"main.php?page=view-admin.php#editUser\" ;
-      },3000);
-      </script>
-      ";*/
 mysqli_close($link);
 
 

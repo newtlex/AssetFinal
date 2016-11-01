@@ -15,8 +15,6 @@ include('connect.php');
    $vendorID = $data['assetVendor'];
    echo "$vendoeID";
 
-
-  echo "listVendor('$vendorID')";
 ?>
 
 <style media="screen">

@@ -4,6 +4,7 @@
   }
 </style>
 <h1>อัพเดทงาน</h1>
+<br>
 
 <?php
 
@@ -13,7 +14,7 @@
     include('connect.php');
 
     $id = $_GET['id'];
-    
+
 
     //echo "{$_GET['id']}";
 
@@ -39,7 +40,7 @@
 
 
    <form class="form-horizontal" action="sql-add-maintainDetail.php" method="post">
-     <div class="col-md-4 col-md-offset-1 well">
+     <div class="col-md-4 col-md-offset-1">
        <div class="form-group">
          <label for="maintainId" class="col-md-4">เลขที่งานซ่อม</label>
          <div class="col-md-8">
@@ -106,9 +107,12 @@
          <button class="btn btn-success" type="submit" name="submit">เพิ่ม</button>
        </p>
      </div>
-     <div class="col-md-5 col-md-offset-1 well">
-       <table class="table table-bordered">
+     <div class="col-md-5 col-md-offset-1">
+       <table class="table table-hover">
          <thead>
+           <th>
+             ลำดับ
+           </th>
            <th>
              รหัสงานซ่อม
            </th>
@@ -124,7 +128,6 @@
            <th>
               ผู้แจ้ง
            </th>
-
          </thead>
          <tbody>
            <?php include('list-maintain-datail.php'); ?>

@@ -5,6 +5,8 @@
   $sql = "SELECT * FROM maintaindetail where maintainAsset_ID = {$data['MaintainID']}";
   $rsDetail = mysqli_query($link, $sql);
 
+  $start = 1;
+
 
   while ($data = mysqli_fetch_array($rsDetail)) {
 
@@ -14,7 +16,11 @@
   $dataAdmin = mysqli_fetch_array($rsAdmin);
 
     echo "<tr>";
-    echo "<td>
+    echo "
+    <td>
+    {$start}
+    </td>
+    <td>
     {$data['maintainAsset_ID']}
     </td>
     <td>
@@ -28,12 +34,9 @@
     </td>
     <td>
     {$dataAdmin['admin_fname']} {$dataAdmin['admin_lname']}
-    </td>
-    <td>
-    {$data['technician']}
-    </td>
-    ";
+    </td>";
     echo "</tr>";
+    $start++;
   }
 
 

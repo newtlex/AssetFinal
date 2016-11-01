@@ -297,15 +297,12 @@ $imageName = "blankImage.png";
 
       </div>
       <div class="form-group">
-        <div class="col-md-4 col-md-offset-9 text-right">
+        <div class="col-md-3 col-md-offset-8 text-right">
           <input type="hidden" name="astype" value="3">
           <input type="hidden" name="ID" value="<?php echo "$id"; ?>" >
           <input type="hidden" name="assetDetail" value="<?php echo "{$data2['assetDetail']}"; ?>">
           <button class="btn btn-primary" type="submit">ตกลง</button>
         </div>
-      </div>
-      <div class="form-group">
-
       </div>
     </div>
   </form>

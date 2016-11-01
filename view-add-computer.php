@@ -192,7 +192,7 @@ $imageName = "blankImage.png";
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4">รูปภาพ</label>
+        <label class="col-md-3">รูปภาพ</label>
         <div class="col-md-7">
           <label class="btn btn-success btn-sm btn-file">
             Upload Image <input id="fileUpload" type="file" name="file" style="display: none;" >
@@ -200,7 +200,7 @@ $imageName = "blankImage.png";
         </div>
       </div>
       <div class="form-group">
-        <div class="col-md-5 col-md-offset-4" id="image-holder">
+        <div class="col-md-5 col-md-offset-3" id="image-holder">
           <a href = "imageAsset/<?php echo "{$imageName}"; ?>"><img src="imageAsset/<?php echo "{$imageName}" ?>" class = "img-thumbnail" /></a>
         </div>
       </div>
@@ -217,7 +217,7 @@ $imageName = "blankImage.png";
 
       </div>
       <div class="form-group">
-        <div class="col-md-2 col-md-offset-9 text-right">
+        <div class="col-md-2 col-md-offset-8 text-right">
           <input type="hidden" name="astype" value="1">
           <input type="hidden" name="ID" value="<?php echo "$id"; ?>" >
           <input type="hidden" name="assetDetail" value="<?php echo "{$data2['assetDetail']}"; ?>">

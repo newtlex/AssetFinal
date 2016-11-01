@@ -3,6 +3,8 @@
 if ($_POST) {
 
 include('connect.php');
+require_once('mpdf/mpdf.php'); //ที่อยู่ของไฟล์ mpdf.php ในเครื่องเรานะครับ
+ob_start(); // ทำการเก็บค่า html นะครับ
 
 $assetDateStart = $_POST['assetDateStart'];
 $assetDateEnd = $_POST['assetDateEnd'];
@@ -11,6 +13,9 @@ $expireDateEnd =  $_POST['expireDateEnd'];
 $assetType = $_POST['assetType'];
 $assetVendor = $_POST['assetVendor'];
 $assetstatus = $_POST['assetStatus'];
+$minPrice = $_POST['minPrice'];
+$maxPrice = $_POST['maxPrice'];
+
 
 if($assetstatus=="0"){
   $searchStatus = '';
@@ -29,6 +34,13 @@ if($assetVendor=="0"){
 }
 else {
   $searchAssetVendor = " AND assetVendor='$assetVendor'";
+}
+if($minPrice==null||$maxPrice==null){
+  $searchAssetPrice = '';
+
+}
+else {
+  $searchAssetPrice = " AND assetPrice > '$minPrice' AND assetPrice < '$maxPrice'";
 }
 if($assetDateStart==null||$assetDateEnd==null){
   $searchAssetDate = '';
@@ -72,6 +84,7 @@ FROM  asset_table,vendor_table,assettype_table,status_table
 WHERE assetVendor=vendorID
 AND assetType=IDType
 AND assetStatus=statusID
+$searchAssetPrice
 $searchStatus
 $searchAssetType
 $searchAssetVendor
@@ -80,6 +93,13 @@ $searchExpireDate";
 
 $rs =mysqli_query($link, $sql);
 
+echo "<!DOCTYPE html>";
+echo "<html>";
+echo "<head>";
+echo "<meta charset=\"utf-8\">";
+echo "<title></title>";
+echo "</head>";
+echo "<body>";
 echo "<table class=\"table table-bordered\" id=\"colshow\">";
 echo "<caption\>รายงาน</caption>";
 echo "<thead>";
@@ -128,8 +148,16 @@ echo "</table>";
 
 
 
+echo "</body>";
+echo "</html>";
 
 
+
+$html = ob_get_contents();        //เก็บค่า html ไว้ใน $html
+ob_end_clean();
+echo "$html";
+
+//$pdf->Output();       // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
 
   // echo "ID {$data['assetID']}  assetType {$data['assetType']}  assetVendor {$data['vendorName']} assetDATE $myFormatForView<br >";
 

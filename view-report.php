@@ -1,4 +1,6 @@
-<?php include('head.php'); ?>
+<?php include('head.php');
+
+ ?>
 
 
 <style media="screen">
@@ -10,7 +12,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <form  class="" method="post">
+      <form  id ="formAsset"class="" method="post">
         <div class="panel panel-danger">
           <div class="panel-heading">
             <h3 class="panel-title">Report</h3>
@@ -30,21 +32,15 @@
                       <br>
                    <label for="">เลือกข้อมูล</label>
                    <br>
-                     <input type="checkbox" name = "showColum[]" value ="assetID" > ID </input>
-                     <input type="checkbox" name = "showColum[]" value="assetName" > assetName </input>
-                     <input type="checkbox" name = "showColum[]" value="assetDate" > assetDate </input>
-                     <input type="checkbox" name = "showColum[]" value="assetExpire" > assetExpire </input>
-                         <br>
-                     <input type="checkbox" name = "showColum[]" value="assetPrice" > assetPrice </input>
-                     <input type="checkbox" name = "showColum[]" value="vendorName" > vendorName </input>
-                     <input type="checkbox" name = "showColum[]" value="typeName" > typeName </input>
-                      <input type="checkbox" name = "showColum[]" value="statusName" > statusName </input>
+                     <input type="checkbox" name = "showColum[]" value ="assetID" >หมายเลขอุปกรณ์</input>
+                     <input type="checkbox" name = "showColum[]" value="assetName" >ชื่ออุปกรณ์</input>
+
 
                   <br>
                   <br>
 
                   <label>
-                    เลือกช่วงเวลาที่เพิ่มอุปกรณ์
+                  <input type="checkbox" name = "showColum[]" value="assetDate" >วันที่ซื้อ</input>
                   </label>
                   <div class="input-group">
                     <input   type="date" name="assetDateStart" class="form-control">
@@ -58,15 +54,25 @@
                   </div>
                   <br>
                   <label>
-                  เลือกช่วงเวลาทอุปกรณ์หมดประกัน
+                    <input type="checkbox" name = "showColum[]" value="assetPrice" >ราคา</input>
+                  </label>
+                  <div class="input-group">
+                    <input  type="text" name="minPrice" class="form-control">
+                    <span class="input-group-addon"> To </span>
+                    <input  type="text" name="maxPrice" class="form-control">
+                  </div>
+                  <br>
+                  <label>
+                  <input type="checkbox" name = "showColum[]" value="assetExpire" >วันที่หมดประกัน</input>
                   </label>
                   <div class="input-group">
                     <input  type="date" name="expireDateStart" class="form-control">
                     <span class="input-group-addon"> To </span>
                     <input  type="date" name="expireDateEnd" class="form-control">
                   </div>
+                    <br>
                   <label>
-                   เลือกจากสถานะอุปกรณ์
+                    <input type="checkbox" name = "showColum[]" value="statusName" >สถานะ</input>
                   </label>
                   <select class="form-control" name="assetStatus">
                     <option value="0">เลือก</option>
@@ -74,7 +80,7 @@
                   </select>
                   <br>
                   <label>
-                     เลือกจากชนิดอุปกรณ์
+                  <input type="checkbox" name = "showColum[]" value="typeName" >ประเภท</input>
                   </label>
                   <select class="form-control" name="assetType">
                         <option value="0">เลือก</option>
@@ -85,7 +91,7 @@
 
 
                   <label>
-                  ลือกจากผู้ผลิต
+                   <input type="checkbox" name = "showColum[]" value="vendorName" >ผู้ขาย</input>
                   </label>
                   <select class="form-control" name="assetVendor">
                     <option value="0">
@@ -95,14 +101,16 @@
                   </select>
                   <br>
 
-
+             </form>
 
               <body onload="maintainDivhidden()">
 
 
                 </div> <!-- form-group -->
-<button id = 'submitButton' type =""  name="button"> submit</button>
+             <button id = 'submitButton' type =""  name="button"> submit</button>
               </div> <!-- col-md-4 -->
+             <form id="formMaintian" class=""  method="post">
+
 
               <div id="maintainDiv"   >
               <div class="col-md-4">
@@ -115,59 +123,73 @@
                   </label>
                   <br>
                   <br>
+                  <label for="">เลือกข้อมูล</label>
+                  <br>
+
+                  <br>
                   <label>
-                    <input type="checkbox" name="selectDate"   id="timeCheckbox" onclick="timeCheck()"> เลือกช่วงเวลา
+                    <input type="checkbox" name = "showMaintainColum[]" value="MaintainDate" >วันที่แจ้งซ่อม</input>
                   </label>
                   <br>
                   <div class="input-group">
-                    <input  id = "Date" type="date" name="startDate" class="form-control" disabled >
+                    <input   type="date" name="maintianDateStart" class="form-control"  >
                     <span class="input-group-addon"> To </span>
-                    <input  id = "endDate" type="date" name="enddate" class="form-control" disabled>
+                    <input   type="date" name="maintianDateEnd" class="form-control" >
                   </div>
                   <br>
                   <label>
-                    <input type="checkbox" name="selectStatus"> เลือกจากชนิดงานซ่อม
+                    <input type="checkbox" name = "showMaintainColum[]" value="MaintainType" >ประเภทการซ่อม</input>
                   </label>
-                  <select class="form-control" name="status">
+                  <select class="form-control" name="MaintainType">
                     <option value="0">เลือก</option>
-                    <?php
-                    ?>
+                    <option value="ส่งซ่อม">ส่งซ่อม</option>
+                    <option value="ส่งเคลม">ส่งเคลม</option>
+                  </select>
+                  <br>
+                  <label>
+                    <input type="checkbox" name = "showMaintainColum[]" value ="admin_fname,admin_lname,maintainUserID" >ผู้แจ้งซ่อม </input>
+                  </label>
+                  <select class="form-control" name="maintainUserIDname">
+                    <option value='0'>เลือก</option>
+                    <?php    include("sql-list-maintainUserID.php"); ?>
+
+                  </select>
+                  <br>
+                  <label>
+                       <input type="checkbox" name = "showMaintainColum[]" value="maintainStatus" >สถานะงานซ่อม</input>
+                  </label>
+                  <select class="form-control" name="maintainStatus">
+                    <option value="0">เลือก</option>
+                    <option value="inProgress">inProgress</option>
+                    <option value="Completed">Completed</option>
                   </select>
                   <br>
 
                   <label>
-                    <input type="checkbox" name="selectMaintain"> เลือกสถานะงานซ่อม
+                    <input type="checkbox" name = "showMaintainColum[]" value="MaintainDetail" >อาการ</input>
+
                   </label>
-                  <select class="form-control" name="maintain">
+
+                  <input type = "text" class="form-control" name="MaintainDetail">
+                  <label>
+                    <input type="checkbox" name = "showMaintainColum[]" value="maintainVendorName" >สถานที่ซ่อมหรือเคลม</input>
+                  </label>
+                  <select class="form-control" name="maintainVendor">
                     <option value="0">
                       เลือก
                     </option>
-                    <option value="1">
-                      ซ่อม
-                    </option>
-                    <option value="2">
-                      PM
-                    </option>
+                    <?php include('sql-maintain-vendor.php') ?>
                   </select>
                   <br>
 
-
                   <label>
-                    <input type="checkbox" name="selectUser"> เลือกจากผู้ใช้
+                  <input type="checkbox" name = "showMaintainColum[]" value="typeName" >ชนิดอุปกรณ์</input>
                   </label>
-                  <select class="form-control" name="user">
-                    <option value="0">
-                      เลือก
-                    </option>
-                    <option value="1">
-                      ช่าง1
-                    </option>
-                    <option value="2">
-                      ช่าง2
-                    </option>
+                  <select class="form-control" name="assetType">
+                        <option value="0">เลือก</option>
+                    <?php include('sql-asset-type.php') ?>
                   </select>
-
-
+                  <br>
 
                 </div> <!-- form-group -->
           <button id = 'submitButton' type =""  name="button"> submit</button>
@@ -179,7 +201,7 @@
               <div class="col-md-8">
               <div id = "body">
 
-                 </div>
+              </div>
 
               </div>
 
@@ -196,7 +218,9 @@
   </div>
 </div>
 <script type="text/javascript">
-$( "form" ).on( "submit", function( event ) {
+
+
+$( "#formAsset" ).on( "submit", function( event ) {
   event.preventDefault();
   console.log( $( this ).serialize() );
   $.ajax({
@@ -207,31 +231,35 @@ $( "form" ).on( "submit", function( event ) {
   success : callback
   });
 });
+$( "#formMaintian" ).on( "submit", function( event ) {
+  event.preventDefault();
+  console.log( $( this ).serialize() );
+  $.ajax({
+  url: 'sql-reportMaintain.php',
+  type: 'POST',
+  dataType: 'text',
+  data:$( this ).serialize(),
+  success : callback
+  });
+});
 $(document).ready(function(){
   $("#maintainReport").change(function(){
     $("#reportdiv").hide();
     $("#maintainDiv").show();
+
   });
   $("#assetReport").change(function(){
     $("#reportdiv").show();
     $("#maintainDiv").hide();
+
   });
 });
 function callback(result){
   $("#body").html(result);
+
 }
 function maintainDivhidden(){
   $("#maintainDiv").hide();
 }
-  function timeCheck(){
-    var x = document.getElementById("timeCheckbox").checked;
- if(x){
-    document.getElementById("Date").disabled = false;
-    document.getElementById("endDate").disabled = false;
-  }
-  else{
-     document.getElementById ("Date").disabled = true;
-     document.getElementById("endDate").disabled = true;
-   }
-   };
+
 </script>

@@ -26,7 +26,7 @@
     </div>
 
     <div id="reportdiv">
-      <form id="formAsset" method="post">
+      <form id="formAsset" method="post" action="sql-report.php">
         <label>เลือกข้อมูลที่ต้องการแสดง</label>
         <div class="form-group">
           <label class="checkbox-inline">
@@ -117,18 +117,19 @@
             </select>
           </div>
         </div>
-        <button class="btn btn-primary" id="submitButton" name="button">ค้นหา</button>
+        <button class="btn btn-primary" id="submitReport" name="button">ค้นหา</button>
+        <button class="btn btn-primary" type="submit" name="button">รายงาน</button>
       </form> <!-- form 1 -->
     </div>
 
     <div id="maintainDiv">
-      <form id="formMaintian" method="post">
+      <form id="formMaintian" method="post" action="sql-reportMaintain.php">
         <div class="form-group">
           <label class="checkbox-inline">
             <input type="hidden" name="" value="maintainasset_table.assetID" checked>
           </label>
           <label class="checkbox-inline">
-            <input type="hidden" name="showMaintainColum[]" value="assetName" checked> 
+            <input type="hidden" name="showMaintainColum[]" value="assetName" checked>
           </label>
         </div>
         <div class="form-group">
@@ -231,7 +232,8 @@
             </select>
           </div>
         </div>
-        <button class="btn btn-primary" id="submitButton" name="button">ตกลง</button>
+        <button class="btn btn-primary" id="showMaintain" name="button">ตกลง</button>
+        <button class="btn btn-primary" type="submit" name="button">รายงาน</button>
       </form> <!-- form 1 -->
     </div>
 
@@ -245,25 +247,26 @@
 <script type="text/javascript">
 
 
-$( "#formAsset" ).on( "submit", function( event ) {
+
+$("#submitReport").click(function(event){
   event.preventDefault();
-  console.log( $( this ).serialize() );
+  console.log( $( '#formAsset' ).serialize() );
   $.ajax({
   url: 'sql-report.php',
   type: 'POST',
   dataType: 'text',
-  data:$( this ).serialize(),
+  data:$( '#formAsset' ).serialize(),
   success : callback
   });
 });
-$( "#formMaintian" ).on( "submit", function( event ) {
+$( "#showMaintain" ).click(function(event){
   event.preventDefault();
-  console.log( $( this ).serialize() );
+  console.log( $('#formMaintian').serialize() );
   $.ajax({
   url: 'sql-reportMaintain.php',
   type: 'POST',
   dataType: 'text',
-  data:$( this ).serialize(),
+  data:$('#formMaintian').serialize(),
   success : callback
   });
 });

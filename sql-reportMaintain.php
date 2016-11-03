@@ -164,8 +164,16 @@ $html = ob_get_contents();        //เก็บค่า html ไว้ใน $
 ob_end_clean();
 echo "$html";
 
-//$pdf->Output();       // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
+$pdf = new mPDF('th', 'A4', '0', 'THSaraban');
 
+$pdf->SetAutoFont();
+
+$pdf->SetDisplayMode('fullpage');
+
+$pdf->WriteHTML($html, 2);
+
+$pdf->Output("MyPDF/MyPDF.pdf");     // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
+echo "ดาวโหลดรายงานในรูปแบบ PDF <a href=\"MyPDF/MyPDF.pdf\">คลิกที่นี้</a>";
   // echo "ID {$data['assetID']}  assetType {$data['assetType']}  assetVendor {$data['vendorName']} assetDATE $myFormatForView<br >";
 
 

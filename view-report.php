@@ -23,19 +23,19 @@
           <input id="maintainReport" type="radio" name="report" value="2"> รายงานการแจ้งซ่อม
         </label>
       </div>
-      <label>เลือกข้อมูลที่ต้องการแสดง</label>
-      <div class="form-group">
-        <label class="checkbox-inline">
-          <input type="checkbox" name="showColum[]" value="assetID"> หมายเลขอุปกรณ์
-        </label>
-        <label class="checkbox-inline">
-          <input type="checkbox" name="showColum[]" value="assetName"> ชื่ออุปกรณ์
-        </label>
-      </div>
     </div>
 
     <div id="reportdiv">
       <form id="formAsset" method="post">
+        <label>เลือกข้อมูลที่ต้องการแสดง</label>
+        <div class="form-group">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="showColum[]" value="assetID"> หมายเลขอุปกรณ์
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="showColum[]" value="assetName"> ชื่ออุปกรณ์
+          </label>
+        </div>
         <div class="form-group">
           <label>วันที่ซื่อ</label>
           <div class="input-group">
@@ -123,6 +123,7 @@
 
     <div id="maintainDiv">
       <form id="formMaintian" method="post">
+        
         <div class="form-group">
           <label>วันที่แจ้งซ่อม</label>
           <div class="input-group">

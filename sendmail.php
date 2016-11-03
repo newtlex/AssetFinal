@@ -12,6 +12,7 @@ require 'PHPMailer-5.2-stable/PHPMailerAutoload.php';
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
 //Tell PHPMailer to use SMTP
+$mail->CharSet = "utf-8";
 $mail->isSMTP();
 //Enable SMTP debugging
 // 0 = off (for production use)
@@ -29,19 +30,27 @@ $mail->SMTPSecure = 'tls';
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
-$mail->Username = "soulkyo888@gmail.com";
+$mail->Username = "geniustreethailand@gmail.com";
 //Password to use for SMTP authentication
-$mail->Password = "Gmail01014540";
+$mail->Password = "Geniusqwerty";
 //Set who the message is to be sent from
-$mail->setFrom('soulkyo888@gmail.com', 'Admin NeaLL');
+$mail->setFrom('geniustreethailand@gmail.com', 'IT Admin');
 //Set who the message is to be sent to
-$mail->addAddress('nakarin.guy@gmail.com', 'nakarin','nakarin.guy@gmail.com', 'nakarin');
+
+foreach($recipients as $email => $name)
+{
+   echo "$email, $name <br />";
+   $mail->addAddress($email,$name);
+}
+
+
+//$mail->addAddress('nakarin.guy@gmail.com', 'nakarin','nakarin.guy@gmail.com', 'nakarin');
 //Set the subject line
-$mail->Subject = 'itOffside.com test email';
+$mail->Subject = $headMessage;
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
 //$mail->msgHTML(file_get_contents('content.html'), dirname(__FILE__));
-$mail->msgHTML("Test email by itoffside.com");
+$mail->msgHTML($bodyMessage);
 
 //send the message, check for errors
 if (!$mail->send()) {

@@ -1,3 +1,8 @@
+<style media="screen">
+  h2{
+    text-align: center;
+  }
+</style>
 <?php
 
   include('head.php');
@@ -19,46 +24,49 @@
 
  ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><b>เพิ่มผู้ลิต</b></h3>
-        </div>
-        <div class="panel-body">
-          <form action="sql-add-vendor.php" method="post">
-            <div class="form-group">
-              <label for="vendorName">ชื่อบริษัท</label>
-              <input class="form-control" type="text" name="vendorName"
-               value="<?php echo "{$data['vendorName']}"; ?>">
-            </div>
 
-            <div class="form-group">
-              <label for="ContactName">ชื่อผู้ติดต่อ</label>
-              <input class="form-control" type="text" name="ContactName"
-              value="<?php echo "{$data['ContactName']}"; ?>">
-            </div>
 
-            <div class="form-group">
-              <label for="vendorPhone">เบอร์โทร</label>
-              <input class="form-control" type="text" name="vendorPhone"
-              value="<?php echo "{$data['vendorPhone']}"; ?>">
-            </div>
 
-            <div class="form-group">
-              <label for="vendorAddress">ที่อยู่</label>
-              <input class="form-control" type="text" name="vendorAddress"
-              value="<?php echo "{$data['vendorAddress']}"; ?>">
-            </div>
-            <button class="btn btn-primary" type="submit" name="submit">ตกลง</button>
-            <button class="btn btn-primary" type="submit" onclick="goBack()">ยกเลิก</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+ <div class="container">
+   <form class="form-horizontal" action="sql-add-vendor.php" method="post">
+     <div class="col-md-6 col-md-offset-3">
+       <h2>แก้ไขตัวแทนจำหน่าย</h2>
+       <hr>
+       <div class="form-group">
+         <label class="col-md-4">ชื่อบริษัท</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="vendorName"
+            value="<?php echo "{$data['vendorName']}"; ?>">
+         </div>
+       </div>
+       <div class="form-group">
+         <label class="col-md-4">ชื่อผู้ติดต่อ</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="ContactName"
+           value="<?php echo "{$data['ContactName']}"; ?>">
+         </div>
+       </div>
+       <div class="form-group">
+         <label class="col-md-4">เบอร์โทร</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="vendorPhone"
+           value="<?php echo "{$data['vendorPhone']}"; ?>">
+         </div>
+       </div>
+       <div class="form-group">
+         <label class="col-md-4">ที่อยู่</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="vendorAddress"
+           value="<?php echo "{$data['vendorAddress']}"; ?>">
+         </div>
+       </div>
+       <div class="text-right">
+         <button class="btn btn-primary" type="submit" onclick="goBack()">ยกเลิก</button>
+         <button class="btn btn-primary" type="submit" name="submit">ตกลง</button>   
+       </div>
+     </div>
+   </form>
+ </div>
 <script>
 function goBack() {
     window.history.back();

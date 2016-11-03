@@ -1,4 +1,3 @@
-
 $(function() {
    var path = location.pathname;
     console.log(path);
@@ -82,6 +81,7 @@ function listAsset(txt,txtName,start,end){
       // console.log(i +":"+assetid );
       text +=
       "<tr>"+
+      "<td>"+result[i].start+"</td>"+
       "<td>"+result[i].assetID +"</td>"+
       "<td>"+result[i].assetName +"</td>"+
       "<td>"+result[i].assetPrice +"</td>"+
@@ -89,7 +89,6 @@ function listAsset(txt,txtName,start,end){
       "<td>"+assetTypeName+"</td>"+
       "<td>"+ assetVendor+"</td>"+
       "<td>"+assetStatus+"</td>"+
-
       "<td> <a class='btn btn-danger' href=main.php?page=view-edit-asset.php&id="+assetid+"&detail="+result[i].detail+ "><span class='glyphicon glyphicon-pencil'></span></a>&nbsp;"+
       "<a class='btn btn-danger' href=sql-delete-asset.php?id="+assetid+"><span class='glyphicon glyphicon-trash'></span></a>&nbsp;"+
       "<a class='btn btn-danger' href=main.php?page=view-maintain.php&maintain="+assetid+"><span class='glyphicon glyphicon-wrench'></span></a></td>"
@@ -108,17 +107,15 @@ $(document).ready(function() {
     fileUpload();
   });
   var txt = "";
-  var start = 0;
-  var end = 5;
   $("#selectType").change(function(){
     txt = $("#selectType").val();
     txtName = $("#inputName").val();
-    listAsset(txt,txtName,start,end);
+    listAsset(txt,txtName);
   });
   $("#inputName").keyup(function(){
     txt = $("#selectType").val();
     txtName = $("#inputName").val();
-    listAsset(txt,txtName,start,end);
+    listAsset(txt,txtName);
   });
   $("#txtConfirmPassword").keyup(function() {
         var password = $("#txtNewPassword").val();

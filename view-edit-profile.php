@@ -1,3 +1,9 @@
+<style media="screen">
+  h1{
+    text-align: center;
+  }
+</style>
+
 <?php
   session_start();
 
@@ -23,69 +29,78 @@
  ?>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><b>แก้ไขข้อมูลส่วนตัว</b></h3>
-        </div>
-        <div class="panel-body">
-          <form action="sql-edit-user.php" method="post">
-            <div class="form-group">
-              <label for="ID">User ID</label>
-              <input class="form-control" type="text" name="ID" value="<?php echo "{$data['admin_id']}"; ?>" readonly >
-            </div>
-            <div class="form-group">
-              <label for="fname">ชื่อ</label>
-              <input class="form-control" type="text" name="fname" value="<?php echo "{$data['admin_fname']}"; ?>">
-            </div>
-            <div class="form-group">
-              <label for="lname">นามสกุล</label>
-              <input class="form-control" type="text" name="lname" value="<?php echo "{$data['admin_lname']}"; ?>">
-            </div>
-            <div class="form-group">
-              <label for="email">อีเมล</label>
-              <input class="form-control" type="email" name="email" value="<?php echo "{$data['admin_email']}"; ?>">
-            </div>
-
-
-            <div class="form-group">
-              <label >พาสเวิร์ดใหม่</label>
-              <input class="form-control" type="password" id="txtNewPassword" name="NewPassword">
-            </div>
-
-            <div class="form-group">
-              <label   >ยืนยันพาสเวิร์ด</label>
-              <input class="form-control" id="txtConfirmPassword" type="password" name="confirmPassword">
-            </div>
-            <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
-            <div class="form-group">
-              <label for="tel">เบอร์โทรศัพท์</label>
-              <input class="form-control" type="tel" name="tel" value="<?php echo "{$data['admin_tel']}"; ?>">
-            </div>
-            <div class="form-group">
-              <label for="address">ที่อยู่</label>
-              <input class="form-control" type="text" name="address" value="<?php echo "{$data['admin_address']}"; ?>">
-            </div>
-
-            <?php  if($_SESSION["userType"]=='admin') { ?>
-            <div class="form-group">
-              <label for="userType">userType</label></label>
-              <select class="form-control" name="userType" value="<?php echo "{$data['userType']}"; ?>">
-
-                <option value="admin">admin</option>
-                <option value="user">user</option>
-              </select>
-            </div>
-            <?php } ?>
-            <button  id="btnSummit" type="button" class="btn btn-primary">ตกลง</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+ <div class="container">
+   <form class="form-horizontal" action="sql-edit-user.php" method="post">
+     <div class="col-md-6 col-md-offset-3">
+       <h1>แก้ไขข้อมูลส่วนตัว</h1>
+       <hr>
+       <div class="form-group">
+         <label for="ID" class="col-md-4">User ID</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="ID" value="<?php echo "{$data['admin_id']}"; ?>" readonly >
+         </div>
+       </div>
+       <div class="form-group">
+         <label for="email" class="col-md-4">อีเมล</label>
+         <div class="col-md-8">
+           <input class="form-control" type="email" name="email" value="<?php echo "{$data['admin_email']}"; ?>">
+         </div>
+       </div>
+       <div class="form-group">
+         <label for="fname" class="col-md-4">ชื่อ</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="fname" value="<?php echo "{$data['admin_fname']}"; ?>">
+         </div>
+       </div>
+       <div class="form-group">
+         <label for="lname" class="col-md-4">นามสกุล</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="lname" value="<?php echo "{$data['admin_lname']}"; ?>">
+         </div>
+       </div>
+       <div class="form-group">
+         <label class="col-md-4">พาสเวิร์ดใหม่</label>
+         <div class="col-md-8">
+           <input class="form-control" type="password" id="txtNewPassword" name="NewPassword">
+         </div>
+       </div>
+       <div class="form-group">
+         <label class="col-md-4">ยืนยันพาสเวิร์ด</label>
+         <div class="col-md-8">
+           <input class="form-control" id="txtConfirmPassword" type="password" name="confirmPassword">
+         </div>
+       </div>
+       <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+       <div class="form-group">
+         <label for="tel" class="col-md-4">เบอร์โทรศัพท์</label>
+         <div class="col-md-8">
+           <input class="form-control" type="tel" name="tel" value="<?php echo "{$data['admin_tel']}"; ?>">
+         </div>
+       </div>
+       <div class="form-group">
+         <label for="address" class="col-md-4">ที่อยู่</label>
+         <div class="col-md-8">
+           <input class="form-control" type="text" name="address" value="<?php echo "{$data['admin_address']}"; ?>">
+         </div>
+       </div>
+       <?php  if($_SESSION["userType"]=='admin') { ?>
+       <div class="form-group">
+         <label for="userType" class="col-md-4">ตำแหน่ง</label></label>
+         <div class="col-md-8">
+           <select class="form-control" name="userType" value="<?php echo "{$data['userType']}"; ?>">
+             <option value="admin">admin</option>
+             <option value="user">user</option>
+           </select>
+         </div>
+       </div>
+       <?php } ?>
+       <p class="text-right">
+         <button class="btn btn-primary" type="submit" onclick="goBack()">ยกเลิก</button>
+         <button  id="btnSummit" type="button" class="btn btn-primary">ตกลง</button>       
+       </p>
+     </div>
+   </form>
+ </div>
 
   <script type="text/javascript" src="js/script.js">
 

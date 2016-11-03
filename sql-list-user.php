@@ -34,6 +34,8 @@ else if ($typename == 0 && $Name==null){
 
 $rs = mysqli_query($link, $sql);
 
+$start = 1;
+
 
 while ($data = mysqli_fetch_array($rs))
 {
@@ -50,6 +52,7 @@ while ($data = mysqli_fetch_array($rs))
          break;
       }*/
   $json_data[]=array(
+       'start'=>$start++,
        'id'=>$data['admin_id'],
        'fname'=>$data['admin_fname'],
        'lname'=>$data['admin_lname'],

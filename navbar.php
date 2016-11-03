@@ -36,11 +36,11 @@ session_start(); ?>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="main.php?page=view-main.php">จัดการอุปกรณ์</a></li>
-      <li><a href="main.php?page=view-show-maintain.php">แจ้งซ่อม</a></li>
-      <li><a href="main.php?page=view-report.php">Report</a></li>
+      <li><a href="main.php?page=view-show-maintain.php">ตารางซ่อม</a></li>
+      <li><a href="main.php?page=view-report.php">รายงาน</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="main.php?page=view-admin.php">Edit User</a></li>
+      <li><a href="main.php?page=view-admin.php">จัดการระบบ</a></li>
       <li><a href="main.php?page=view-edit-profile.php&id=<?php echo "{$_SESSION['idname']}"; ?>"><span class="glyphicon glyphicon-user"></span> คุณ: <?php echo "{$_SESSION["fname"]} {$_SESSION["lname"]}"; ?></a></li>
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>

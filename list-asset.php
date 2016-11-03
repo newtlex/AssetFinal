@@ -28,12 +28,17 @@ $sql = "SELECT * FROM asset_table where assetName like \"%$searchName%\" AND ass
 }
 
 
+
+
 $rs = mysqli_query($link, $sql);
+
+$start = 1;
 
 while ($data = mysqli_fetch_array($rs))
 {
   //$data['assetID'] = str_pad($data['assetID'],5,'0',STR_PAD_LEFT);
   $json_data[]=array(
+       'start'=>$start++,
        'assetID'=>$data['assetID'],
        'assetName'=>$data['assetName'],
        'assetDate'=>$data['assetDate'],

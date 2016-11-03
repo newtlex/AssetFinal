@@ -5,10 +5,6 @@
   </head>
   <body>
 
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.3.js"></script>
-
-    </script>
 
     <style>
       body{
@@ -16,7 +12,7 @@
       }
     </style>
 
-    <?php 
+    <?php
     include('view-login.php'); ?>
 
 

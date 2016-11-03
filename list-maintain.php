@@ -14,30 +14,34 @@
 
   $r = "";
 
-
+  $start = 1;
 
   while ($data = mysqli_fetch_array($rs)) {
 
     $_GET['id'] = $data['MaintainID'];
 
-    if ($data['maintainStatus'] == "Completed") {
+    if ($data['maintainStatus'] == "inProgress") {
       $r = "<img src=\"image/tick_16.png\" /> เสร็จ";
     }else {
       $r = "<img src=\"image/clock_16.png\" /> กำลังดำเนินการ";
     };
 
     echo "<tr>";
-    echo "<td>
+    echo "
+    <td>
+    {$start}
+    </td>
+    <td>
     {$data['MaintainID']}
     </td>
     <td>
     {$data['assetID']}
     </td>
     <td>
-    {$data['MaintainName']}
+    {$data['MaintainDate']}
     </td>
     <td>
-    {$data['MaintainDate']}
+    {$data['maintainUserID']}
     </td>
     <td>
     {$data['MaintainDetail']}
@@ -46,11 +50,25 @@
     {$data['technician']}
     </td>
     <td>
-    <a href=\"main.php?page=view-maintain-detial.php&id={$data['MaintainID']}\">$r</a> <!---->
+    {$r}
     </td>
-    ";
-    echo "</tr>";
-  }
+    <td>
+    <a class='btn btn-info' href=\"main.php?page=view-maintain-detial.php&id={$data['MaintainID']}\"><span class='glyphicon glyphicon-eye-open'></span></a>
+    </td>
+    <td>";
+    $start++;
+    if ($data['maintainStatus'] == "inProgress") {
+        continue;
+    }
+    else {
+      echo "
+          <a class='btn btn-warning' href=\"main.php?page=view-maintain-detial.php&id={$data['MaintainID']}\"><span class='glyphicon glyphicon-pencil'></span></a>
+          </td>
+          ";
+          echo "</tr>";
 
+        }
+
+    }
 
  ?>

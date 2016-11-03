@@ -4,158 +4,100 @@
 
  ?>
 
- <div class="container">
+    <style>
+     #caption{
+       font-size: 20px;
+       color: black;
+     }
+     #href{
+       color: black;
+       font-size: 20px;
+     }
+     .btn-default{
+       box-shadow: 1px 2px 5px #000000;
+     }
+     #head{
+       padding-left: 20px;
+       color: gray;
+       font-size: 30px;
+     }
+   </style>
+   <hr>
+   <div class="container-fluid">
+     <div class="row">
+       <div class="col-md-4">
+         <select id = "searchStatus" class="form-control" name="searchStatus">
+           <?php include('sql-asset-type.php'); ?>
+         </select>
+       </div>
+       <div class="col-md-3">
+         <div class="btn-group" data-toggle="buttons">
+           <label class="btn btn-info">
+             <input type="radio" name="day" id="option1"><span class="glyphicon glyphicon-time"></span> Day
+           </label>
+           <label class="btn btn-info">
+             <input type="radio" name="week" id="option2"><span class="glyphicon glyphicon-time"></span> Week
+           </label>
+           <label class="btn btn-info">
+             <input type="radio" name="mount" id="option3"><span class="glyphicon glyphicon-time"></span> Mount
+           </label>
+         </div>
+       </div>
+       <div class="col-md-4 col-md-offset-1">
+         <div class="input-group">
+           <input id="inputName" type="text" class="form-control" placeholder="Search for..." name="searchName">
+           <span class="input-group-btn">
+             <button class="btn btn-info" type="button"><span class="glyphicon glyphicon-search"></span> Go </button>
+           </span>
+         </div>
+       </div>
+     </div>
+   </div>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#maintain" aria-controls="maintain" role="tab" data-toggle="tab">ตารางงาน</a></li>
-    <li role="presentation"><a href="#addmaintain" aria-controls="addmaintain" role="tab" data-toggle="tab">เพิ่มงาน</a></li>
-    <li role="presentation"><a href="#report" aria-controls="report" role="tab" data-toggle="tab">Report</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-  </ul>
+<div class="container-fluid">
+  <table class="table table-hover ">
+    <div class="row">
+      <hr>
+      <caption id="caption">ข้อมูลการซ่อม <p class="text-right">
+              <?php   $img_status="
+                    [ <img src=\"image/clock_16.png\" /> กำลังดำเนินการ  ]
+                    [ <img src=\"image/tick_16.png\" />  เสร็จ ]
+                    ";
+                    echo "{$img_status}";
+              ?>
+            </p></caption>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <br>
-    <!-- id="maintain" -->
-    <div role="tabpanel" class="tab-pane active" id="maintain">
-      <table class="table table-bordered">
-        <caption id="caption">ข้อมูลองาน</caption>
-        <thead>
-          <tr>
-            <th>
-              ID งาน
-            </th>
-            <th>
-              ID อุปกรณ์
-            </th>
-            <th>
-              รายการ
-            </th>
-            <th>
-              วันที่แจ้งเข้ามา
-            </th>
-            <th>
-              รายละเอียด
-            </th>
-            <th>
-              ช่าง
-            </th>
-            <th>
-              สถานะ
-            </th>
-          </tr>
-        </thead>
-        <tbody id="demo">
-          <?php include('list-maintain.php'); ?>
-        </tbody>
-      </table>
-    </div> <!-- end maintain -->
-
-    <!-- id="addmaintain" -->
-    <div role="tabpanel" class="tab-pane" id="addmaintain">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title"><b>Maintain</b></h3>
-            </div>
-            <div class="panel-body">
-              <form action="sql-add-maintain.php" method="get">
-                <div class="form-group">
-                  <label class="radio-inline">
-                    <input type="radio" name="job" value="1">ซ่อม
-                  </label>
-                  <label class="radio-inline">
-                    <input type="radio" name="job" value="2">PM
-                  </label>
-                </div>
-                <div class="form-group">
-                  <select class="form-control" name="asid">
-                    <?php include('asset-sql-assetID.php') ?>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <p id="demo">
-
-                  </p>
-                </div>
-                <div class="form-group">
-                  <select class="form-control" name="userid">
-                    <?php include('sql-maintain.php') ?>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="asname">รายละเอียด</label>
-                  <textarea class="form-control" rows="3" name="detail"></textarea>
-                </div>
-                <button class="btn btn-default" type="submit">ตกลง</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- end addmaintain -->
-
-    <!-- id="report" -->
-    <div role="tabpanel" class="tab-pane" id="report">
-
-    </div> <!-- end report -->
-
-    <!-- id="settings" -->
-    <div role="tabpanel" class="tab-pane" id="settings">
-      <table class="table table-bordered">
-        <caption id="caption">ข้อมูลองาน</caption>
-        <thead>
-          <tr>
-            <th>
-              ID งาน
-            </th>
-            <th>
-              ID อุปกรณ์
-            </th>
-            <th>
-              รายการ
-            </th>
-            <th>
-              วันที่แจ้งเข้ามา
-            </th>
-            <th>
-              รายละเอียด
-            </th>
-            <th>
-              ช่าง
-            </th>
-            <th>
-              สถานะ
-            </th>
-          </tr>
-        </thead>
-        <tbody id="demo">
-          <?php include('list-maintain.php'); ?>
-        </tbody>
-      </table>
-    </div> <!-- end settings -->
-  </div> <!-- end Tab panes -->
-
-</div> <!-- end container -->
-
-
-<ul class="nav nav-tabs nav-stacked">
-      <li><a href="#tab1" data-toggle="tab">Tab 1</a></li>
-      <li><a href="#tab2" data-toggle="tab">Tab 2</a></li>
-      <li><a href="#tab3" data-toggle="tab">Tab 3</a></li>
-  </ul>
-
-
-  <div class="tab-content">
-      <div class="tab-pane fade" id="tab1">
-          Tab 1 content
-      </div>
-      <div class="tab-pane fade" id="tab2">
-          Tab 2 content
-      </div>
-      <div class="tab-pane fade" id="tab3">
-          Tab 3 content
-      </div>
-  </div>
+    </div>
+    <thead>
+      <tr>
+        <th>
+          ลำดับ
+        </th>
+        <th>
+          รายการ
+        </th>
+        <th>
+          ID อุปกรณ์
+        </th>
+        <th>
+          วันที่แจ้งเข้ามา
+        </th>
+        <th>
+          รายละเอียด
+        </th>
+        <th>
+          ช่าง
+        </th>
+        <th>
+          สถานะ
+        </th>
+        <th colspan="2" style='width:5%;'>
+          จัดการ
+        </th>
+      </tr>
+    </thead>
+    <tbody id="demo">
+      <?php include('list-maintain.php'); ?>
+    </tbody>
+  </table>
+</div>

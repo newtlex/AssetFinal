@@ -30,9 +30,12 @@ $sql = "SELECT * FROM vendor_table";
 
 $rs = mysqli_query($link, $sql);
 
+$start = 1;
+
 while ($data = mysqli_fetch_array($rs))
 {
   $json_data[]=array(
+       'start'=>$start++,
        'id'=>$data['vendorID'],
        'vendorName'=>$data['vendorName'],
        'contactName'=>$data['ContactName'],

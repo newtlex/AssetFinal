@@ -1,6 +1,5 @@
 <?php
   include('head.php');
-
  ?>
 
 <style>
@@ -10,7 +9,15 @@
   #top1{
     margin-top: 180px;
   }
+  .btn-default{
+    box-shadow: 1px 2px 5px #000000;
+  }
+  button:hover{
+    background-color: red;
+  }
+
 </style>
+
 
 <div class="container">
   <div class="row">
@@ -20,7 +27,7 @@
         <div class="panel-body">
           <form class="form-group" action="check-login.php" method="post">
             <div class="form-group">
-              <label for="email-login">Email address</label>
+              <label for="email-login">Email</label>
               <input type="email" class="form-control" placeholder="Email" name="email-login">
             </div>
             <div class="form-group">
@@ -28,12 +35,61 @@
               <input type="password" class="form-control" placeholder="Password" name="password-login">
             </div>
             <div class="form-group" id="button1">
-              <a href="view-signup.php">สมัครมาชิก</a>
+              <a class="btn btn-default" data-toggle="modal" data-target="#signUp">สมัครมาชิก</a>
               <button class="btn btn-default" type="submit" name="submit">เข้าสู่ระบบ</button>
             </div>
           </form>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">สมัครสมาชิก</h4>
+      </div>
+      <div class="modal-body">
+        <form action="signup-admin.php" method="post">
+          <div class="form-group">
+            <label for="fname">ชื่อ</label>
+            <input class="form-control" type="text" name="fname">
+          </div>
+          <div class="form-group">
+            <label for="lname">นามสกุล</label>
+            <input class="form-control" type="text" name="lname">
+          </div>
+          <div class="form-group">
+            <label for="email">อีเมล</label>
+            <input class="form-control" type="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password1">พาสเวิร์ด</label>
+            <input class="form-control" type="text" name="password1">
+          </div>
+          <div class="form-group">
+            <label for="password2">พาสเวิร์ด อีกครั้ง</label>
+            <input class="form-control" type="text" name="password2">
+          </div>
+          <div class="form-group">
+            <label for="tel">เบอร์โทรศัพท์</label>
+            <input class="form-control" type="tel" name="tel">
+          </div>
+          <div class="form-group">
+            <label for="address">ที่อยู่</label>
+            <input class="form-control" type="text" name="address" row="2">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+          <button class="btn btn-default" type="submit" name="submit">ตกลง</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

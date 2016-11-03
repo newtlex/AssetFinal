@@ -47,153 +47,6 @@
   </div>
   <hr>
 
-
-
-
-<!-- Modal -->
-<div class="modal fade bs-example-modal-lg" id="addAsset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">เพิ่มอุปกรณ์</h4>
-      </div>
-      <div class="modal-body">
-        <form action="sql-add-asset.php" method="post">
-          <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="asname">ชื่ออุปกรณ์</label>
-                <input class="form-control input-sm" type="text" name="asname">
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="price">ราคา</label>
-                <input class="form-control input-sm" type="text" name="price">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="startdate">วันที่เพิ่มอุปกรณ์</label>
-                <input class="form-control input-sm" type="date" name="startdate">
-              </div>
-            </div>
-            <div class="col-md-5">
-              <label for="vendor">ตัวแทนจำหน่าย</label>
-              <select class="form-control input-sm" name="vendor">
-                <?php include('sql-asset-vendor.php'); ?>
-              </select>
-            </div>
-            <div class="col-md-1">
-              <label>&nbsp;</label>
-              <a class="btn btn-default glyphicon glyphicon-plus" data-toggle="modal" data-target="#btvendor">เพิ่ม</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="enddate">วันหมดประกัน</label>
-                <input class="form-control input-sm" type="date" name="enddate">
-              </div>
-            </div>
-            <div class="col-md-5">
-              <label for="astype">ชนิดอุปกรณ์</label>
-              <select class="form-control input-sm" name="astype">
-                <?php include('sql-asset-type.php'); ?>
-              </select>
-            </div>
-            <div class="col-md-1">
-              <label>&nbsp;</label>
-              <a class="btn btn-default glyphicon glyphicon-plus" data-toggle="modal" data-target="#bttype">เพิ่ม</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-5">
-              <label for="status">สถานะ</label>
-              <select class="form-control input-sm" name="status">
-                <?php include('sql-asset-status.php'); ?>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2 col-md-offset-10">
-              <button class="btn btn-success btn-lg" type="submit" name="submit">&nbsp;&nbsp; เพิ่ม &nbsp;&nbsp;</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!-- Modaltype -->
-<div class="modal fade" id="btvendor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><b>เพิ่มตัวแทนจำหน่าย</b></h4>
-      </div>
-      <div class="modal-body">
-        <form action="sql-add-vendor.php" method="post">
-          <div class="form-group">
-            <label for="vendorname">ตัวแทนจำหน่าย</label>
-            <input class="form-control" type="text" name="vendorname">
-          </div>
-          <div class="form-group">
-            <label for="contactName">ผู้ติดต่อ</label>
-            <input class="form-control" type="text" name="contactName">
-          </div>
-          <div class="form-group">
-            <label for="vendorPhone">เบอร์โทรศัพท์</label>
-            <input class="form-control" type="text" name="vendorPhone">
-          </div>
-          <div class="form-group">
-            <label for="vendorAddress">ที่อยู่</label>
-            <input class="form-control" type="text" name="vendorAddress">
-          </div>
-          <div class="text-right">
-            <button class="btn btn-success" type="submit" name="submit">เพิ่ม</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modaltype -->
-<div class="modal fade" id="bttype" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><b>เพิ่มชนิดอุปกรณ์</b></h4>
-      </div>
-      <div class="modal-body">
-        <form action="sql-add-assetType.php" method="post">
-          <div class="form-group">
-            <label for="assettype">ชนิดอุปกรณ์</label>
-            <input class="form-control" type="text" name="assettype">
-          </div>
-          <div class="text-right">
-            <button class="btn btn-success" type="submit" name="submit">เพิ่ม</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
@@ -234,6 +87,9 @@
           <br>
           <thead id="mythead">
             <th>
+              ลำดับ
+            </th>
+            <th>
               Asset ID
             </th>
             <th>
@@ -254,15 +110,13 @@
             <th>
               สถานะ
             </th>
-            <th>
-              Edit
+            <th style="width:11%;">
+              จัดการ
             </th>
           </thead>
-
           <tbody id="mySelect">
             <body onload="listAsset(0,null,0,100);">
           </tbody>
-
         </table>
       </div>
     </div>

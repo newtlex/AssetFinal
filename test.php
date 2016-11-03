@@ -3,15 +3,13 @@
 include('connect.php');
 
 
-$asid =139;
 
-$sql = "SELECT * from owner where $asid = assetID and enddate = \"0000-00-00\"";
+
+$sql = "SELECT maintainasset_table.assetID as assetID FROM maintainasset_table";
 $rs =mysqli_query($link, $sql);
 while($data = mysqli_fetch_array($rs))
 {
- echo "adminID, {$data['adminID']}
- assetID, {$data['assetID']}
- endDate, {$data['endDate']} <BR />";
+ echo "assetID, {$data['assetID']} <BR />";
 }
 $owner = $data['adminID'];
 $admin = "admin";

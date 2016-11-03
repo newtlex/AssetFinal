@@ -64,23 +64,17 @@ else {
 
 $showColum = implode(",", $_POST['showMaintainColum']);
 $columeArray = (explode(",",$showColum));
+array_unshift($columeArray,"assetID");
 
 
-
-/*foreach ($columeArray as $key => $value) {
-  echo "$value";
-}*/
+foreach ($columeArray as $key => $value) {
+  //echo "$value";
+}
  $time = strtotime($startDate);
  $myFormatForView = date("Y-m-d", $time);
  //echo "$myFormatForView";
- if ($assetID == null)
- {
-   $assetID= '';
- }else {
-    $assetID = "maintainasset_table.assetID as assetID,";
- }
 
-$sql = "SELECT $showColum
+$sql = "SELECT maintainasset_table.assetID as assetID,$showColum
 FROM maintainasset_table,asset_table,assettype_table,admin
 WHERE asset_table.assetID = maintainasset_table.assetID
 and IDType = asset_table.assetType
@@ -121,6 +115,7 @@ echo "<table class=\"table table-bordered\" id=\"colshow\">";
 echo "<caption\>รายงาน</caption>";
 echo "<thead>";
 echo "<tr>";
+//echo "<th> assetID </th>";
 foreach ($columeArray as $key => $value) {
   echo "<th>$value </th>";
 }
@@ -130,8 +125,9 @@ echo "<tbody>";
 
 $text ='';
  while($data = mysqli_fetch_array($rs)){
-$text ='';
 echo "<tr>";
+//echo "<td>{$data['assetID']}</td> ";
+
    foreach ($columeArray as $key => $value) {
      if ($value=='MaintainDate ') {
        $time = strtotime($data['MaintainDate ']);

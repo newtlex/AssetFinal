@@ -123,7 +123,14 @@
 
     <div id="maintainDiv">
       <form id="formMaintian" method="post">
-        
+        <div class="form-group">
+          <label class="checkbox-inline">
+            <input type="hidden" name="" value="maintainasset_table.assetID" checked>
+          </label>
+          <label class="checkbox-inline">
+            <input type="hidden" name="showMaintainColum[]" value="assetName" checked> 
+          </label>
+        </div>
         <div class="form-group">
           <label>วันที่แจ้งซ่อม</label>
           <div class="input-group">

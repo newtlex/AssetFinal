@@ -63,7 +63,7 @@
    include ('sendmail.php');
  }
   echo "<script>alert('อัพเดทงานเรียบร้อย');
-          window.history.back();
+          window.location.href = 'main.php?page=view-show-maintain.php';
         </script>";
 
 

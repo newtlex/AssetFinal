@@ -39,7 +39,7 @@ $mail->setFrom('geniustreethailand@gmail.com', 'IT Admin');
 
 foreach($recipients as $email => $name)
 {
-   echo "$email, $name <br />";
+   //echo "$email, $name <br />";
    $mail->addAddress($email,$name);
 }
 

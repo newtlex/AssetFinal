@@ -20,7 +20,7 @@
 
     $_GET['id'] = $data['MaintainID'];
 
-    if ($data['maintainStatus'] == "inProgress") {
+    if ($data['maintainStatus'] == "Completed") {
       $r = "<img src=\"image/tick_16.png\" /> เสร็จ";
     }else {
       $r = "<img src=\"image/clock_16.png\" /> กำลังดำเนินการ";
@@ -47,9 +47,6 @@
     {$data['MaintainDetail']}
     </td>
     <td>
-    {$data['technician']}
-    </td>
-    <td>
     {$r}
     </td>
     <td>
@@ -57,7 +54,7 @@
     </td>
     <td>";
     $start++;
-    if ($data['maintainStatus'] == "inProgress") {
+    if ($data['maintainStatus'] == "Completed") {
         continue;
     }
     else {

@@ -105,7 +105,7 @@ echo "<caption\>รายงาน</caption>";
 echo "<thead>";
 echo "<tr>";
 foreach ($columeArray as $key => $value) {
-  echo "<th>$value </th>";
+  echo "<th> $value </th>";
 }
 echo "</tr>";
 echo "</thead>";

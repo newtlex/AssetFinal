@@ -166,7 +166,7 @@
           <label>ผู้แจ้งซ่อม</label>
           <div class="input-group">
             <span class="input-group-addon">
-              <input type="checkbox" name="showMaintainColum[]" value="admin_fname,admin_lname,maintainUserID">
+              <input type="checkbox" name="showMaintainColum[]" value="admin_fname,admin_lname">
             </span>
             <select class="form-control" name="maintainUserIDname">
               <option value='0'>

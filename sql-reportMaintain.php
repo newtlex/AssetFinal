@@ -117,7 +117,38 @@ echo "<thead>";
 echo "<tr>";
 //echo "<th> assetID </th>";
 foreach ($columeArray as $key => $value) {
-  echo "<th>$value </th>";
+  if($value == 'assetName'){
+    echo "<th> ชื่อุปกรณ์ </th>";
+  }
+  else  if($value== 'MaintainDate'){
+    echo "<th> วันที่แจ้ง </th>";
+  }
+  else if($value == 'MaintainType'){
+    echo "<th> ชนิดการซ่อม </th>";
+  }
+  else if($value == 'admin_fname'){
+    echo "<th> ชื่อ </th>";
+  }
+  else if($value == 'admin_lname'){
+    echo "<th> นามสกุล </th>";
+  }
+  else if($value == 'maintainStatus'){
+    echo "<th> สถานะการซ่อม </th>";
+  }
+  else if($value == 'MaintainDetail'){
+    echo "<th> อาการ </th>";
+  }
+  else if($value == 'maintainVendorName'){
+    echo "<th> บริษัทที่รับผิดชอบ </th>";
+  }
+  else if($value == 'typeName'){
+    echo "<th> ชนิดอุปกรณ์ </th>";
+  }
+
+  else {
+    echo "<th> $value </th>";
+  }
+
 }
 echo "</tr>";
 echo "</thead>";

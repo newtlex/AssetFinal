@@ -1,7 +1,4 @@
 <style media="screen">
-  div{
-    margin-top: 20px;
-  }
   dd{
     font-size: 20px;
     color: black;
@@ -42,11 +39,14 @@ if ($_POST) {
 
   if (password_verify($pws, $data['admin_password'])) { ?>
       <?php include('head.php'); ?>
+      <?php include('navbar.php'); ?>
 
       <div class="row">
         <div class="col-md-5 col-md-offset-3">
           <h2><p class="text-center">ยินดีต้อนรับ</p></h2>
           <dl class="dl-horizontal">
+            <dt>เข้าใช้งานเมื่อ:</dt>
+            <dd><?php date_default_timezone_set('Asia/Bangkok'); echo date('d/m/Y H:i'); ?></dd>
             <dt>ตำแหน่ง:</dt>
             <dd><?php echo "{$data['userType']}"; ?></dd>
             <dt>ชื่อ - นามสกุล:</dt>
@@ -58,11 +58,11 @@ if ($_POST) {
           </dl>
         </div>
       </div>
-      <script type="text/javascript">
+      <!--<script type="text/javascript">
         setTimeout(function(){
           window.location.href = 'main.php';
         },2000);
-      </script>
+      </script>-->
 
 <?php  } else { ?>
   <?php include('head.php'); ?>

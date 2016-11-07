@@ -100,8 +100,8 @@ echo "<meta charset=\"utf-8\">";
 echo "<title></title>";
 echo "</head>";
 echo "<body>";
-echo "<table class=\"table table-bordered\" id=\"colshow\">";
-echo "<caption\>รายงาน</caption>";
+echo "<table bordercolor='#424242' width='auto' height='auto' border='1'  align='center' cellpadding='0' cellspacing='0'  id=\"colshow\">";
+echo "<caption style='font-size: 20px;'>รายงาน</caption>";
 echo "<thead>";
 echo "<tr>";
 foreach ($columeArray as $key => $value) {

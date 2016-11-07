@@ -57,31 +57,31 @@
       <div class="modal-body">
         <form action="signup-admin.php" method="post">
           <div class="form-group">
-            <label for="fname">ชื่อ</label>
+            <label for="fname"><span class="glyphicon glyphicon-user"></span> ชื่อ</label>
             <input class="form-control" type="text" name="fname">
           </div>
           <div class="form-group">
-            <label for="lname">นามสกุล</label>
+            <label for="lname"><span class="glyphicon glyphicon-user"></span> นามสกุล</label>
             <input class="form-control" type="text" name="lname">
           </div>
           <div class="form-group">
-            <label for="email">อีเมล</label>
+            <label for="email"><span class="glyphicon glyphicon-envelope"></span> อีเมล</label>
             <input class="form-control" type="email" name="email">
           </div>
           <div class="form-group">
-            <label for="password1">พาสเวิร์ด</label>
+            <label for="password1"><span class="glyphicon glyphicon-lock"></span> พาสเวิร์ด</label>
             <input class="form-control" type="text" name="password1">
           </div>
           <div class="form-group">
-            <label for="password2">พาสเวิร์ด อีกครั้ง</label>
+            <label for="password2"><span class="glyphicon glyphicon-lock"></span> พาสเวิร์ด อีกครั้ง</label>
             <input class="form-control" type="text" name="password2">
           </div>
           <div class="form-group">
-            <label for="tel">เบอร์โทรศัพท์</label>
+            <label for="tel"><span class="glyphicon glyphicon-earphone"></span> เบอร์โทรศัพท์</label>
             <input class="form-control" type="tel" name="tel">
           </div>
           <div class="form-group">
-            <label for="address">ที่อยู่</label>
+            <label for="address"><span class="glyphicon glyphicon-home"></span> ที่อยู่</label>
             <input class="form-control" type="text" name="address" row="2">
           </div>
         </div>

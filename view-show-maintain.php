@@ -33,13 +33,13 @@
        <div class="col-md-3">
          <div class="btn-group" data-toggle="buttons">
            <label class="btn btn-info">
-             <input type="radio" name="day" id="option1"><span class="glyphicon glyphicon-time"></span> Day
+             <input type="radio" name="day" id="option1"><span class="glyphicon glyphicon-time"></span> Week
            </label>
            <label class="btn btn-info">
-             <input type="radio" name="week" id="option2"><span class="glyphicon glyphicon-time"></span> Week
+             <input type="radio" name="week" id="option2"><span class="glyphicon glyphicon-time"></span> Two Week
            </label>
            <label class="btn btn-info">
-             <input type="radio" name="mount" id="option3"><span class="glyphicon glyphicon-time"></span> Mount
+             <input type="radio" name="mount" id="option3"><span class="glyphicon glyphicon-time"></span> Month
            </label>
          </div>
        </div>

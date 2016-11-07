@@ -1,13 +1,6 @@
 <?php
   include('connect.php');
 
-  $img_status="
-  		[ <img src=\"image/clock_16.png\" /> กำลังดำเนินการ  ]
-  		[ <img src=\"image/tick_16.png\" />  เสร็จ ]
-  		";
-      echo "{$img_status}";
-
-
 
   $sql = "SELECT * FROM maintainasset_table";
   $rs = mysqli_query($link, $sql);

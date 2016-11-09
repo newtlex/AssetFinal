@@ -17,7 +17,7 @@
       <label>เลือกการรายงาน</label>
       <div class="form-group">
         <label class="radio-inline">
-          <input id="assetReport" type="radio" name="report" value="1"> รายงานอุปกรณ์
+          <input id="assetReport" type="radio" name="report" value="1" checked> รายงานอุปกรณ์
         </label>
         <label class="radio-inline">
           <input id="maintainReport" type="radio" name="report" value="2"> รายงานการแจ้งซ่อม
@@ -30,17 +30,17 @@
         <label>เลือกข้อมูลที่ต้องการแสดง</label>
         <div class="form-group">
           <label class="checkbox-inline">
-            <input type="checkbox" name="showColum[]" value="assetID"> หมายเลขอุปกรณ์
+            <input type="checkbox" name="showColum[]" value="assetID" checked> หมายเลขอุปกรณ์
           </label>
           <label class="checkbox-inline">
-            <input type="checkbox" name="showColum[]" value="assetName"> ชื่ออุปกรณ์
+            <input type="checkbox" name="showColum[]" value="assetName" checked> ชื่ออุปกรณ์
           </label>
         </div>
         <div class="form-group">
           <label>วันที่ซื่อ</label>
           <div class="input-group">
             <span class="input-group-addon">
-              <input type="checkbox" name="showColum[]" value="assetDate">
+              <input type="checkbox" name="showColum[]" value="assetDate" checked>
             </span>
               <input type="date" name="assetDateStart" class="form-control">
             <span class="input-group-addon"> - </span>
@@ -57,7 +57,7 @@
           <label>ราคา</label>
           <div class="input-group">
             <span class="input-group-addon">
-              <input type="checkbox" name="showColum[]" value="assetPrice">
+              <input type="checkbox" name="showColum[]" value="assetPrice" checked>
             </span>
               <input  type="text" name="minPrice" class="form-control">
             <span class="input-group-addon"> - </span>

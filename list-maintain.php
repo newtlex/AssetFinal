@@ -43,7 +43,7 @@
     {$r}
     </td>
     <td>
-    <a class='btn btn-info' href=\"main.php?page=view-maintain-detial.php&id={$data['MaintainID']}\"><span class='glyphicon glyphicon-eye-open'></span></a>
+    <a class='btn btn-info' data-toggle='tooltip' title='ดูรายละเอียดอุปกรณ์' href=\"main.php?page=view-maintain-detial.php&id={$data['MaintainID']}\"><span class='glyphicon glyphicon-eye-open'></span></a>
     </td>
     <td>";
     $start++;
@@ -52,7 +52,7 @@
     }
     else {
       echo "
-          <a class='btn btn-warning' href=\"main.php?page=view-maintain-detial.php&id={$data['MaintainID']}\"><span class='glyphicon glyphicon-pencil'></span></a>
+          <a class='btn btn-warning' data-toggle='tooltip' title='อัพเดทสถานะงานซ่อม' data-placement='left' href=\"main.php?page=view-maintain-detial.php&id={$data['MaintainID']}\"><span class='glyphicon glyphicon-pencil'></span></a>
           </td>
           ";
           echo "</tr>";
@@ -62,3 +62,10 @@
     }
 
  ?>
+
+
+ <script>
+ $(document).ready(function(){
+     $('[data-toggle="tooltip"]').tooltip();
+ });
+ </script>

@@ -91,16 +91,70 @@ $searchAssetVendor
 $searchAssetDate
 $searchExpireDate";
 
-$rs =mysqli_query($link, $sql);
+$rs =mysqli_query($link, $sql); ?>
 
-echo "<!DOCTYPE html>";
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <caption align="center" height="50"><h4 class="text-center">รายงานอุปกรณ์ทั้งหมดที่มีตั้งแต่เดือน(ต.ค. - ธ.ค.)<br>บริษัท จีเนียส-ทรี จำกัด</h4></caption>
+    <table border="1" cellspacing="0" cellpadding="12" align="center" class="table table-bordered">
+      <thead>
+        <tr bgcolor="steelblue">
+          <?php
+          foreach ($columeArray as $key => $value) {
+            echo "<th> $value </th>";
+          } ?>
+        </tr>
+      </thead>
+      <tbody>
+        <?php $text ='';
+         while($data = mysqli_fetch_array($rs)){
+        $text ='';
+        echo "<tr align='left'>";
+           foreach ($columeArray as $key => $value) {
+             if ($value=='assetDate') {
+               $time = strtotime($data['assetDate']);
+               $myFormatForView = date("Y-m-d", $time);
+               echo "<td>";
+               echo "$myFormatForView";
+               echo "</td>";
+             }else if ($value=='assetExpire') {
+               $time = strtotime($data['assetExpire']);
+               $myFormatForView = date("Y-m-d", $time);
+               echo "<td>";
+               echo "$myFormatForView";
+               echo "</td>";
+             }
+             else {
+                $temp = $data[$value];
+                echo "<td>";
+                echo "$temp";
+                echo "</td>";
+              // $text +="<td>"+{$data[$value]}+"</td>";
+
+             }
+
+           }
+           echo "$text";
+          echo "</tr>";
+        } ?>
+      </tbody>
+    </table>
+  </body>
+</html>
+
+<!--echo "<!DOCTYPE html>";
 echo "<html>";
 echo "<head>";
 echo "<meta charset=\"utf-8\">";
 echo "<title></title>";
 echo "</head>";
 echo "<body>";
-echo "<table bordercolor='#424242' width='auto' height='auto' border='1'  align='center' cellpadding='0' cellspacing='0'  id=\"colshow\">";
+echo "<table bordercolor='#000000' border='1' align='center' cellpadding='5' cellspacing='0' bgcolor='steelblue' id=\"colshow\">";
 echo "<caption style='font-size: 20px;'>รายงาน</caption>";
 echo "<thead>";
 echo "<tr>";
@@ -149,15 +203,15 @@ echo "</table>";
 
 
 echo "</body>";
-echo "</html>";
+echo "</html>";-->
 
 
-
+<?php
 $html = ob_get_contents();        //เก็บค่า html ไว้ใน $html
 ob_end_clean();
 echo "$html";
 
-$pdf = new mPDF('th', 'A4', '0', 'THSaraban');
+$pdf = new mPDF('th', 'A4-L', '0', 'THSaraban');
 
 $pdf->SetAutoFont();
 
@@ -166,7 +220,7 @@ $pdf->SetDisplayMode('fullpage');
 $pdf->WriteHTML($html, 2);
 
 $pdf->Output("MyPDF/MyPDF.pdf");     // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
-echo "ดาวโหลดรายงานในรูปแบบ PDF <a href=\"MyPDF/MyPDF.pdf\">คลิกที่นี้</a>";
+echo "<a class='btn btn-primary' href=\"MyPDF/MyPDF.pdf\"><span class='glyphicon glyphicon-print'></span> PDF</a>";
   // echo "ID {$data['assetID']}  assetType {$data['assetType']}  assetVendor {$data['vendorName']} assetDATE $myFormatForView<br >";
 
 

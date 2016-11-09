@@ -3,7 +3,6 @@
   include('head.php');
   include('connect.php');
  ?>
-
    <style>
     #caption{
       font-size: 30px;
@@ -22,6 +21,7 @@
       font-size: 25px;
     }
   </style>
+
   <div class="row">
     <div class="col-md-2">
       <span id="head">ค้นหาอุปกรณ์</span>
@@ -79,6 +79,8 @@
   </div>
 
 
+
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -121,6 +123,13 @@
       </div>
     </div>
   </div>
+
+
+  <script>
+  $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+  });
+  </script>
 
   <script type="text/javascript" src="js/script.js">
 

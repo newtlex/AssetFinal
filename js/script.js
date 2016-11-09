@@ -63,8 +63,6 @@ var statusName = function (id)
 };
 
 
-
-
 function listAsset(txt,txtName,start,end){
   //alert(txt +"   "+txtName);
   $.getJSON('list-asset.php', {searchType:txt,searchName:txtName,pageStart:start,pageEnd:end}, function(result) {
@@ -89,7 +87,7 @@ function listAsset(txt,txtName,start,end){
       "<td>"+assetTypeName+"</td>"+
       "<td>"+ assetVendor+"</td>"+
       "<td>"+assetStatus+"</td>"+
-      "<td> <a class='btn btn-danger' href=main.php?page=view-edit-asset.php&id="+assetid+"&detail="+result[i].detail+ "><span class='glyphicon glyphicon-pencil'></span></a>&nbsp;"+
+      "<td> <a class='btn btn-danger' data-toggle='tooltip' title='แก้ไขอุปกรณ์' href=main.php?page=view-edit-asset.php&id="+assetid+"&detail="+result[i].detail+ "><span class='glyphicon glyphicon-pencil'></span></a>&nbsp;"+
       "<a class='btn btn-danger' href=sql-delete-asset.php?id="+assetid+"><span class='glyphicon glyphicon-trash'></span></a>&nbsp;"+
       "<a class='btn btn-danger' href=main.php?page=view-maintain.php&maintain="+assetid+"><span class='glyphicon glyphicon-wrench'></span></a></td>"
       "</tr>";

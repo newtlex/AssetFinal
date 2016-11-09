@@ -140,7 +140,30 @@ else {
         <tr bgcolor="steelblue">
           <?php
           foreach ($columeArray as $key => $value) {
-            echo "<th> $value </th>";
+            if($value == 'assetName'){
+              echo "<th> ชื่อุปกรณ์ </th>";
+            }
+            else  if($value== 'assetID'){
+              echo "<th> วันที่แจ้ง </th>";
+            }
+            else  if($value== 'assetDate'){
+              echo "<th> วันที่แจ้ง </th>";
+            }
+            else  if($value== 'assetPrice'){
+              echo "<th> ราคา </th>";
+            }
+            else  if($value== 'assetExpire'){
+              echo "<th> วันหมดประกัน </th>";
+            }
+            else if($value == 'statusName'){
+              echo "<th>สถานะอุปกรณ์</th>";
+            }
+            else if($value == 'vendorName'){
+              echo "<th>ผู้ขายหรือผลิต </th>";
+            }
+            else {
+              echo "<th> $value </th>";
+            }
           } ?>
         </tr>
       </thead>

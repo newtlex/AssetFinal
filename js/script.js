@@ -65,9 +65,9 @@ var statusName = function (id)
 
 
 
-function listAsset(txt,txtName,start,end){
+function listAsset(txt,txtName,period){
   //alert(txt +"   "+txtName);
-  $.getJSON('list-asset.php', {searchType:txt,searchName:txtName,pageStart:start,pageEnd:end}, function(result) {
+  $.getJSON('list-asset.php', {searchType:txt,searchName:txtName,PERIOD:period}, function(result) {
   $.ajaxSetup({async: false});
     var text = "";
     var assetid = '';
@@ -85,6 +85,7 @@ function listAsset(txt,txtName,start,end){
       "<td>"+result[i].assetID +"</td>"+
       "<td>"+result[i].assetName +"</td>"+
       "<td>"+result[i].assetPrice +"</td>"+
+      "<td>"+result[i].assetDate +"</td>"+
       "<td>"+result[i].Expire +"</td>"+
       "<td>"+assetTypeName+"</td>"+
       "<td>"+ assetVendor+"</td>"+
@@ -102,20 +103,30 @@ function listAsset(txt,txtName,start,end){
       }
    });
 }
+
 $(document).ready(function() {
+
+  $("input[name=period]:radio").change(function(){
+    var period = $('input:radio[name=period]:checked').val();
+    txt = $("#selectType").val();
+    txtName = $("#inputName").val();
+    listAsset(txt,txtName,period);
+  });
   $("#fileUpload").change(function() {
     fileUpload();
   });
   var txt = "";
   $("#selectType").change(function(){
+    var period = $('input:radio[name=period]:checked').val();
     txt = $("#selectType").val();
     txtName = $("#inputName").val();
-    listAsset(txt,txtName);
+    listAsset(txt,txtName,period);
   });
   $("#inputName").keyup(function(){
+    var period = $('input:radio[name=period]:checked').val();
     txt = $("#selectType").val();
     txtName = $("#inputName").val();
-    listAsset(txt,txtName);
+    listAsset(txt,txtName,period);
   });
   $("#txtConfirmPassword").keyup(function() {
         var password = $("#txtNewPassword").val();

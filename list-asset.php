@@ -4,18 +4,28 @@ session_start();
 
 $typeName = $_GET['searchType'];
 $searchName = $_GET["searchName"];
-$offet = $_GET['pageStart'];
-$LIMIT =$_GET['pageEnd'];
+$period = $_GET['PERIOD'];
+$time ='';
+if($period == "month1")
+{
+  $time = "and assetDate > DATE_SUB(NOW(), INTERVAL 1 month)";
+}
+else if($period == "month6"){
+  $time = "and assetDate > DATE_SUB(NOW(), INTERVAL 6 month)";
+}
+else if($period == "year"){
+  $time = "and assetDate > DATE_SUB(NOW(), INTERVAL 1 year)";
+}
+
 
 
 if ($typeName==0&&$searchName==null)
 {
-$sql = "SELECT * FROM asset_table LIMIT $LIMIT OFFSET $offet";
-
+$sql = "SELECT * FROM asset_table where 1 $time";
 }
 else if($typeName !=0&&$searchName == null)
 {
-$sql = "SELECT * FROM asset_table where assetType = $typeName LIMIT $LIMIT OFFSET $offet";
+$sql = "SELECT * FROM asset_table where assetType = $typeName ";
 
 }
 else if($typeName ==0&&$searchName != null)

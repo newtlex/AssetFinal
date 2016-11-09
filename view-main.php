@@ -55,15 +55,18 @@
         </select>
       </div>
       <div class="col-md-3">
-        <div class="btn-group" data-toggle="buttons">
+        <div class="btn-group">
           <label class="btn btn-info">
-            <input type="radio" name="day" id="option1"><span class="glyphicon glyphicon-time"></span> Week
+            <input type="radio" name="period" value="month1" id="month" data-toggle="button"><span class="glyphicon glyphicon-time"> </span> Month
           </label>
           <label class="btn btn-info">
-            <input type="radio" name="week" id="option2"><span class="glyphicon glyphicon-time"></span> Two Week
+            <input type="radio" name="period" value="month6" id="6month" data-toggle="button"><span class="glyphicon glyphicon-time"></span> 6 Months
           </label>
           <label class="btn btn-info">
-            <input type="radio" name="mount" id="option3"><span class="glyphicon glyphicon-time"></span> Month
+            <input type="radio" name="period" value="year" id="year" data-toggle="button"><span class="glyphicon glyphicon-time"></span> 1 year
+          </label>
+          <label class="btn btn-info">
+            <input type="radio" name="period" value="all" id="all" data-toggle="button"><span class="glyphicon glyphicon-time"></span> ALL
           </label>
         </div>
       </div>
@@ -97,6 +100,9 @@
             </th>
             <th>
               ราคา
+            </th>
+            <th>
+              วันที่ซื้อ
             </th>
             <th>
               วันที่หมดประกัน

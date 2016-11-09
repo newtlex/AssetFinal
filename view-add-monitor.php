@@ -58,7 +58,19 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label class="col-md-4" for="enddate">วันหมดประกัน</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="date" name="enddate" value="<?php echo "{$data2['assetExpire']}"; ?>">
+          <input class="form-control input-sm" type="date" name="enddate" value="<?php
+            // $datetime is something like: 2014-01-31 13:05:59
+           $time = strtotime($data2['assetExpire']);
+           $myFormatForView = date("Y-m-d", $time);
+           // $myFormatForView is something like: 01/31/14 1:05 PM
+            if(isset($id)){
+              echo "$myFormatForView";
+            }
+            else
+            {
+              echo date("Y-m-d");
+            }
+            ?>">
         </div>
       </div>
       <div class="form-group">

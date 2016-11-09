@@ -93,6 +93,40 @@ $searchExpireDate";
 
 $rs =mysqli_query($link, $sql); ?>
 
+<?php
+
+date_default_timezone_set('Asia/Bangkok');
+
+$months = array(0=>"", 1=>"มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+ 						 "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+
+$birth1 = strtotime("{$assetDateStart}");
+$birth2 = strtotime("{$assetDateEnd}");
+
+$a1 = date("j-n-Y", $birth1);
+$a2 = date("j-n-Y", $birth2);
+
+$d1 = explode("-", $a1);
+$d2 = explode("-", $a2);
+
+$m1 = $months[$d1[1]];
+$m2 = $months[$d2[1]];
+
+$y1 = $d1[2] + 543;  //แปลงเป็นปี พ.ศ.
+$y2 = $d2[2] + 543;  //แปลงเป็นปี พ.ศ.
+//echo "<p>$m1.$y1 - $m2.$y2<p><hr>";
+
+$text = "";
+
+if ($_POST['assetDateStart'] || $_POST['assetDateEnd']) {
+  $text = "$m1.$y1 - $m2.$y2";
+}
+else {
+  $text = "อุปกรณ์ทั้งหมด";
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -100,7 +134,7 @@ $rs =mysqli_query($link, $sql); ?>
     <title></title>
   </head>
   <body>
-    <caption align="center" height="50"><h4 class="text-center">รายงานอุปกรณ์ทั้งหมดที่มีตั้งแต่เดือน(ต.ค. - ธ.ค.)<br>บริษัท จีเนียส-ทรี จำกัด</h4></caption>
+    <caption align="center" height="100"><h4 class="text-center">รายงานอุปกรณ์ทั้งหมดที่มีตั้งแต่เดือน(<?php echo "$text"; ?>)<br>บริษัท จีเนียส-ทรี จำกัด</h4></caption>
     <table border="1" cellspacing="0" cellpadding="12" align="center" class="table table-bordered">
       <thead>
         <tr bgcolor="steelblue">
@@ -159,7 +193,31 @@ echo "<caption style='font-size: 20px;'>รายงาน</caption>";
 echo "<thead>";
 echo "<tr>";
 foreach ($columeArray as $key => $value) {
-  echo "<th> $value </th>";
+  if($value == 'assetName'){
+    echo "<th> ชื่อุปกรณ์ </th>";
+  }
+  else  if($value== 'assetID'){
+    echo "<th> วันที่แจ้ง </th>";
+  }
+  else  if($value== 'assetDate'){
+    echo "<th> วันที่แจ้ง </th>";
+  }
+  else  if($value== 'assetPrice'){
+    echo "<th> ราคา </th>";
+  }
+  else  if($value== 'assetExpire'){
+    echo "<th> วันหมดประกัน </th>";
+  }
+  else if($value == 'statusName'){
+    echo "<th>สถานะอุปกรณ์</th>";
+  }
+  else if($value == 'vendorName'){
+    echo "<th>ผู้ขายหรือผลิต </th>";
+  }
+  else {
+    echo "<th> $value </th>";
+  }
+
 }
 echo "</tr>";
 echo "</thead>";

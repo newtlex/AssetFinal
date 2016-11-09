@@ -123,14 +123,6 @@
       </div>
     </div>
   </div>
-
-
-  <script>
-  $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
-  });
-  </script>
-
   <script type="text/javascript" src="js/script.js">
 
   </script>

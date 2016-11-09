@@ -101,3 +101,22 @@
     </tbody>
   </table>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#fileUpload").change(function() {
+    fileUpload();
+  });
+  var txt = "";
+  $("#selectType").change(function(){
+    txt = $("#selectType").val();
+    txtName = $("#inputName").val();
+    listAsset(txt,txtName);
+  });
+  $("#inputName").keyup(function(){
+    txt = $("#selectType").val();
+    txtName = $("#inputName").val();
+    listAsset(txt,txtName);
+  });
+  });
+
+</script>

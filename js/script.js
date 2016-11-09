@@ -63,13 +63,12 @@ var statusName = function (id)
 };
 
 
-<<<<<<< HEAD
+
 
 
 function listAsset(txt,txtName,period){
-=======
-function listAsset(txt,txtName,start,end){
->>>>>>> origin/master
+
+
   //alert(txt +"   "+txtName);
   $.getJSON('list-asset.php', {searchType:txt,searchName:txtName,PERIOD:period}, function(result) {
   $.ajaxSetup({async: false});

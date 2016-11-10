@@ -24,22 +24,28 @@
    </style>
    <hr>
    <div class="container-fluid">
+    <form id="searchForm" method="post" action="list-maintain.php">
      <div class="row">
        <div class="col-md-4">
          <select id = "searchStatus" class="form-control" name="searchStatus">
-           <?php include('sql-asset-type.php'); ?>
+          <option value="0">เลือกสถานะงานซ่อม</option>
+            <option value="inProgress">กำลังดำเนินการ</option>
+              <option value="Completed">ดำเนินการแล้ว</option>
          </select>
        </div>
        <div class="col-md-3">
-         <div class="btn-group" data-toggle="buttons">
+         <div class="btn-group">
            <label class="btn btn-info">
-             <input type="radio" name="day" id="option1"><span class="glyphicon glyphicon-time"></span> Week
+             <input type="radio" name="period" value="week2" id="week2" data-toggle="button">
+             <span class="glyphicon glyphicon-time"> </span>2 Weeks
            </label>
            <label class="btn btn-info">
-             <input type="radio" name="week" id="option2"><span class="glyphicon glyphicon-time"></span> Two Week
+             <input type="radio" name="period" value="month" id="month" data-toggle="button">
+             <span class="glyphicon glyphicon-time"></span>Month
            </label>
            <label class="btn btn-info">
-             <input type="radio" name="mount" id="option3"><span class="glyphicon glyphicon-time"></span> Month
+             <input type="radio" name="period" value="all" id="all" data-toggle="button">
+             <span class="glyphicon glyphicon-time"></span> ALL
            </label>
          </div>
        </div>
@@ -52,6 +58,7 @@
          </div>
        </div>
      </div>
+   </form>
    </div>
 
 <div class="container-fluid">
@@ -97,26 +104,36 @@
       </tr>
     </thead>
     <tbody id="demo">
-      <?php include('list-maintain.php'); ?>
+
     </tbody>
   </table>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
-  $("#fileUpload").change(function() {
-    fileUpload();
+  $("input[name=period]:radio").change(function(){
+    listMaintain();
   });
-  var txt = "";
-  $("#selectType").change(function(){
-    txt = $("#selectType").val();
-    txtName = $("#inputName").val();
-    listAsset(txt,txtName);
+  $("#searchStatus").change(function(){
+    listMaintain();
   });
   $("#inputName").keyup(function(){
-    txt = $("#selectType").val();
-    txtName = $("#inputName").val();
-    listAsset(txt,txtName);
+    listMaintain();
   });
   });
+  function listMaintain(){
+    console.log( $( '#searchForm' ).serialize() );
+    $.ajax({
+    url: 'list-maintain.php',
+    type: 'POST',
+    dataType: 'html',
+    data:$( '#searchForm' ).serialize(),
+    success : callback
+    });
+  };
+  function callback(result){
+    $("#demo").html(result);
+  //  $("#body").html(result);
+
+  }
 
 </script>

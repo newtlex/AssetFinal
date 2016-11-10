@@ -1,10 +1,36 @@
 <?php
   include('connect.php');
+  $searchStatus = $_POST['searchStatus'];
+  $searchName = $_POST['searchName'];
+  $period = $_POST['period'];
+  $searchtext ='';
+  if($searchName){
+  $searchtext = "and (MaintainDetail like \"%$searchName%\"
+                 or assetID like \"%$searchName%\")";
+  }
+
+  $time ='';
+  if($period=="week2")
+  {
+    $time = "and MaintainDate > DATE_SUB(NOW(), INTERVAL 2 week)";
+  }
+  else if($period=="month"){
+    $time = "and MaintainDate > DATE_SUB(NOW(), INTERVAL 1 month)";
+  }
+
+  if($searchStatus=='0')
+  {
+    $sql = "SELECT * FROM maintainasset_table where 1 $searchtext $time";
+  }
+  else if($searchStatus!='0')
+  {
+    $sql = "SELECT * FROM maintainasset_table
+    where maintainStatus like '$searchStatus' $time
+    $searchtext";
+  }
 
 
-  $sql = "SELECT * FROM maintainasset_table";
-  $rs = mysqli_query($link, $sql);
-
+ $rs = mysqli_query($link, $sql);
   $r = "";
 
   $start = 1;

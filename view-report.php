@@ -254,7 +254,7 @@ $("#submitReport").click(function(event){
   $.ajax({
   url: 'sql-report.php',
   type: 'POST',
-  dataType: 'text',
+  dataType: 'html',
   data:$( '#formAsset' ).serialize(),
   success : callback
   });

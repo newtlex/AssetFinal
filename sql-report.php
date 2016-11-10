@@ -300,7 +300,7 @@ $pdf->SetDisplayMode('fullpage');
 
 $pdf->WriteHTML($html, 2);
 
-$pdf->Output("MyPDF/MyPDF.pdf");     // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
+$pdf->Output("C:\pdf\MyPDF.pdf");     // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
 echo "<a class='btn btn-primary' href=\"MyPDF/MyPDF.pdf\"><span class='glyphicon glyphicon-print'></span> PDF</a>";
   // echo "ID {$data['assetID']}  assetType {$data['assetType']}  assetVendor {$data['vendorName']} assetDATE $myFormatForView<br >";
 

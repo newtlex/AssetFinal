@@ -33,7 +33,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="asname" class="col-md-4">ชื่ออุปกรณ์</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="asname" value="<?php echo "{$data2['assetName']}"; ?>">
+          <input class="form-control input-sm" type="text" name="asname" value="<?php echo "{$data2['assetName']}"; ?>" required>
         </div>
       </div>
       <div class="form-group">
@@ -52,7 +52,7 @@ $imageName = "blankImage.png";
              echo date("Y-m-d");
            }
 
-          ?>">
+          ?>" required>
         </div>
       </div>
       <div class="form-group">
@@ -70,14 +70,14 @@ $imageName = "blankImage.png";
             {
               echo date("Y-m-d");
             }
-            ?>">
+            ?>" required>
         </div>
       </div>
       <div class="form-group">
         <label for="vendor" class="col-md-4">ตัวแทนจำหน่าย</label>
         <div class="col-md-7">
           <div class="input-group">
-            <select class="form-control input-sm" name="vendor">
+            <select class="form-control input-sm" name="vendor" required>
               <?php
 
               $sql = "SELECT * FROM vendor_table";
@@ -112,7 +112,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label  class="col-md-4">ผู้ใช้</label>
         <div class="col-md-7">
-          <select class="form-control input-sm" name="newOwner">
+          <select class="form-control input-sm" name="newOwner" required>
 
               <?php
               $sql = "SELECT * FROM `owner` WHERE `startDate` = (SELECT MAX(`startDate`)
@@ -255,7 +255,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="status" class="col-md-4">สถานะ</label>
         <div class="col-md-7">
-          <select class="form-control input-sm" name="status">
+          <select class="form-control input-sm" name="status" required>
             <?php
 
             $sql = "SELECT * FROM status_table";
@@ -275,7 +275,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="price" class="col-md-4">ราคา</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="price" value="<?php echo "{$data2['assetPrice']}"; ?>">
+          <input class="form-control input-sm" type="text" name="price" value="<?php echo "{$data2['assetPrice']}"; ?>" required>
         </div>
       </div>
       <div class="form-group">
@@ -289,7 +289,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="sn" class="col-md-4">S/N</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="sn" placeholder="xxx.xxxx.xxxxx" value="<?php echo "{$data2['assetSN']}"; ?>">
+          <input class="form-control input-sm" type="text" name="sn" placeholder="xxx.xxxx.xxxxx" value="<?php echo "{$data2['assetSN']}"; ?>" required>
         </div>
       </div>
       <div class="form-group">
@@ -334,19 +334,19 @@ $imageName = "blankImage.png";
         <form action="sql-add-assetvendor.php" method="post">
           <div class="form-group">
             <label for="vendorname">ตัวแทนจำหน่าย</label>
-            <input class="form-control" type="text" name="vendorname">
+            <input class="form-control" type="text" name="vendorname" required>
           </div>
           <div class="form-group">
             <label for="contactName">ผู้ติดต่อ</label>
-            <input class="form-control" type="text" name="contactName">
+            <input class="form-control" type="text" name="contactName" required>
           </div>
           <div class="form-group">
             <label for="vendorPhone">เบอร์โทรศัพท์</label>
-            <input class="form-control" type="text" name="vendorPhone">
+            <input class="form-control" type="text" name="vendorPhone" required>
           </div>
           <div class="form-group">
             <label for="vendorAddress">ที่อยู่</label>
-            <input class="form-control" type="text" name="vendorAddress">
+            <input class="form-control" type="text" name="vendorAddress" required>
           </div>
           <div class="text-right">
             <button class="btn btn-success" type="submit" name="submit">เพิ่ม</button>

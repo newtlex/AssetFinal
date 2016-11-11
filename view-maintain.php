@@ -74,7 +74,7 @@ include('connect.php');
 				<div class="form-group">
 					<label for="detail" class="col-md-3">แจ้งปัญหา</label>
 					<div class="col-md-10">
-						<textarea class="form-control" name="detail" rows="8"></textarea>
+						<textarea class="form-control" name="detail" rows="8" required></textarea>
 					</div>
 				</div>
 	    </div>

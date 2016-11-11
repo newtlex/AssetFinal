@@ -14,6 +14,13 @@ $MaintainDetail = $_POST['MaintainDetail'];
 $maintainStatus = $_POST['maintainStatus'];
 $maintainVendor = $_POST['maintainVendor'];
 $maintainUserIDname  = $_POST['maintainUserIDname'];
+$maintainNumber  = $_POST['maintainNumber'];
+$maintainText  = $_POST['maintainText'];
+$time ='';
+if($maintainText&&$maintainNumber)
+{
+  $time = "and MaintainDate > DATE_SUB(NOW(), INTERVAL $maintainNumber $maintainText)";
+}
 
 if($MaintainType =="0"){
   $searchMaintainType = '';
@@ -70,15 +77,14 @@ array_unshift($columeArray,"assetID");
 foreach ($columeArray as $key => $value) {
   //echo "$value";
 }
- $time = strtotime($startDate);
- $myFormatForView = date("Y-m-d", $time);
- //echo "$myFormatForView";
+
 
 $sql = "SELECT maintainasset_table.assetID as assetID,$showColum
 FROM maintainasset_table,asset_table,assettype_table,admin
 WHERE asset_table.assetID = maintainasset_table.assetID
 and IDType = asset_table.assetType
 and maintainUserID = admin_id
+$time
 $searchMaintainType
 $searchMaintainUserIDname
 $searchMaintainDetail
@@ -121,7 +127,7 @@ foreach ($columeArray as $key => $value) {
     echo "<th> ชื่อุปกรณ์ </th>";
   }
   else  if($value== 'MaintainDate'){
-    echo "<th> วันที่แจ้ง </th>";
+    echo "<th> วันที่แจ้งซ่อม </th>";
   }
   else if($value == 'MaintainType'){
     echo "<th> ชนิดการซ่อม </th>";
@@ -203,7 +209,7 @@ $pdf->SetDisplayMode('fullpage');
 
 $pdf->WriteHTML($html, 2);
 
-$pdf->Output("MyPDF/MyPDF.pdf");     // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
+$pdf->Output("C:\pdf\MyPDF.pdf");    // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
 echo "ดาวโหลดรายงานในรูปแบบ PDF <a href=\"MyPDF/MyPDF.pdf\">คลิกที่นี้</a>";
   // echo "ID {$data['assetID']}  assetType {$data['assetType']}  assetVendor {$data['vendorName']} assetDATE $myFormatForView<br >";
 

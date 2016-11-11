@@ -35,7 +35,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="asname" class="col-md-4">ชื่ออุปกรณ์</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="asname" value="<?php echo "{$data2['assetName']}"; ?>" required>
+          <input class="form-control input-sm" type="text" name="asname" value="<?php echo "{$data2['assetName']}"; ?>">
         </div>
       </div>
       <div class="form-group">
@@ -61,7 +61,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="price" class="col-md-4">ราคา</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="price" value="<?php echo "{$data2['assetPrice']}"; ?>" required>
+          <input class="form-control input-sm" type="text" name="price" value="<?php echo "{$data2['assetPrice']}"; ?>">
         </div>
       </div>
       <div class="form-group">
@@ -97,7 +97,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="Newowner" class="col-md-4">ผู้ใช้</label>
         <div class="col-md-7">
-          <select class="form-control input-sm" name="newOwner" required>
+          <select class="form-control input-sm" name="newOwner">
 
               <?php
               $sql = "SELECT * FROM `owner` WHERE `startDate` = (SELECT MAX(`startDate`)
@@ -151,7 +151,7 @@ $imageName = "blankImage.png";
             echo date("Y-m-d");
           }
 
-          ?>" required>
+          ?>">
         </div>
       </div>
       <div class="form-group">
@@ -169,14 +169,14 @@ $imageName = "blankImage.png";
             {
               echo date("Y-m-d");
             }
-            ?>" required>
+            ?>">
         </div>
       </div>
       <div class="form-group">
         <label for="vendor" class="col-md-3">ตัวแทนจำหน่าย</label>
         <div class="col-md-7">
           <div class="input-group">
-            <select class="form-control input-sm" name="vendor" required>
+            <select class="form-control input-sm" name="vendor">
               <?php
 
               $sql = "SELECT * FROM vendor_table";
@@ -200,14 +200,14 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="sn" class="col-md-3">S/N</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="sn" placeholder="xxx.xxxx.xxxxx" value="<?php echo "{$data2['assetSN']}"; ?>" required>
+          <input class="form-control input-sm" type="text" name="sn" placeholder="xxx.xxxx.xxxxx" value="<?php echo "{$data2['assetSN']}"; ?>">
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-3">รูปภาพ</label>
         <div class="col-md-7">
           <label class="btn btn-success btn-sm btn-file">
-            Upload Image <input id="fileUpload" type="file" name="file" style="display: none;">
+            Upload Image <input id="fileUpload" type="file" name="file" style="display: none;" >
           </label>
         </div>
       </div>

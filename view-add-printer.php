@@ -34,7 +34,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="asname" class="col-md-4 ">ชื่ออุปกรณ์</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="asname" value="<?php echo "{$data2['assetName']}"; ?>" required>
+          <input class="form-control input-sm" type="text" name="asname" value="<?php echo "{$data2['assetName']}"; ?>">
         </div>
       </div>
       <div class="form-group">
@@ -75,7 +75,7 @@ $imageName = "blankImage.png";
              echo date("Y-m-d");
            }
 
-          ?>" required>
+          ?>">
         </div>
       </div>
       <div class="form-group">
@@ -93,14 +93,14 @@ $imageName = "blankImage.png";
             {
               echo date("Y-m-d");
             }
-            ?>" required>
+            ?>">
         </div>
       </div>
 
       <div class="form-group">
         <label  class="col-md-4">ผู้ใช้</label>
         <div class="col-md-7">
-          <select class="form-control input-sm" name="newOwner" required>
+          <select class="form-control input-sm" name="newOwner">
 
               <?php
               $sql = "SELECT * FROM `owner` WHERE `startDate` = (SELECT MAX(`startDate`)
@@ -203,7 +203,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="status" class="col-md-4 ">สถานะ</label>
         <div class="col-md-7">
-          <select class="form-control input-sm" name="status" required>
+          <select class="form-control input-sm" name="status">
             <?php
 
             $sql = "SELECT * FROM status_table";
@@ -224,7 +224,7 @@ $imageName = "blankImage.png";
         <label for="vendor" class="col-md-4">ตัวแทนจำหน่าย</label>
         <div class="col-md-7">
           <div class="input-group">
-            <select class="form-control input-sm" name="vendor" required>
+            <select class="form-control input-sm" name="vendor">
               <?php include('sql-asset-vendor.php'); ?>
             </select>
             <span class="input-group-btn">
@@ -236,7 +236,7 @@ $imageName = "blankImage.png";
       <div class="form-group">
         <label for="sn" class="col-md-4">S/N</label>
         <div class="col-md-7">
-          <input class="form-control input-sm" type="text" name="sn" placeholder="xxx.xxxx.xxxxx" required>
+          <input class="form-control input-sm" type="text" name="sn" placeholder="xxx.xxxx.xxxxx">
         </div>
 
       </div>
@@ -283,19 +283,19 @@ $imageName = "blankImage.png";
         <form action="sql-add-vendor.php" method="post">
           <div class="form-group">
             <label for="vendorname">ตัวแทนจำหน่าย</label>
-            <input class="form-control" type="text" name="vendorname" required>
+            <input class="form-control" type="text" name="vendorname">
           </div>
           <div class="form-group">
             <label for="contactName">ผู้ติดต่อ</label>
-            <input class="form-control" type="text" name="contactName" required>
+            <input class="form-control" type="text" name="contactName">
           </div>
           <div class="form-group">
             <label for="vendorPhone">เบอร์โทรศัพท์</label>
-            <input class="form-control" type="text" name="vendorPhone" required>
+            <input class="form-control" type="text" name="vendorPhone">
           </div>
           <div class="form-group">
             <label for="vendorAddress">ที่อยู่</label>
-            <input class="form-control" type="text" name="vendorAddress" required>
+            <input class="form-control" type="text" name="vendorAddress">
           </div>
           <div class="text-right">
             <button class="btn btn-success" type="submit" name="submit">เพิ่ม</button>

@@ -104,7 +104,7 @@
       </tr>
     </thead>
     <tbody id="demo">
-
+         <body onload="listMaintain();">
     </tbody>
   </table>
 </div>

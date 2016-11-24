@@ -144,76 +144,70 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="form-inline">
-            <div class="form-group">
-              <label>ช่วงเวลา</label>
-              &nbsp;
-              &nbsp;
-              <select class="form-control" name="maintainNumber">
-                <option value="0">
-                  เลือกเดือน...&nbsp;&nbsp;&nbsp;&nbsp;
-                </option>
-                <option value="1">
-                  1
-                </option>
-                <option value="2">
-                  2
-                </option>
-                <option value="3">
-                  3
-                </option>
-                <option value="4">
-                  4
-                </option>
-                <option value="5">
-                  5
-                </option>
-                <option value="6">
-                  6
-                </option>
-                <option value="7">
-                  7
-                </option>
-                <option value="8">
-                  8
-                </option>
-                <option value="9">
-                  9
-                </option>
-                <option value="10">
-                  10
-                </option>
-                <option value="11">
-                  11
-                </option>
-                <option value="12">
-                  12
-                </option>
-              </select>
-            </div>
-            &nbsp;
-            &nbsp;
-            <div class="form-group">
-              <label></label>
-              &nbsp;
-              &nbsp;
-              <select class="form-control" name="maintainText">
-                <option value="0">
-                  กรุณาเลือกช่วง&nbsp;&nbsp;&nbsp;
-                </option>
-                <option value="week">
-                  Week
-                </option>
-                <option value="month">
-                  Month
-                </option>
-                <option value="ear">
-                  Year
-                </option>
-              </select>
-            </div>
+          <label>ช่วงเวลา</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="checkbox">
+            </span>
+            <select class="form-control" name="maintainNumber">
+              <option value="0">
+                เลือกเดือน...&nbsp;&nbsp;&nbsp;&nbsp;
+              </option>
+              <option value="1">
+                1
+              </option>
+              <option value="2">
+                2
+              </option>
+              <option value="3">
+                3
+              </option>
+              <option value="4">
+                4
+              </option>
+              <option value="5">
+                5
+              </option>
+              <option value="6">
+                6
+              </option>
+              <option value="7">
+                7
+              </option>
+              <option value="8">
+                8
+              </option>
+              <option value="9">
+                9
+              </option>
+              <option value="10">
+                10
+              </option>
+              <option value="11">
+                11
+              </option>
+              <option value="12">
+                12
+              </option>
+            </select>
+            <span class="input-group-addon"> - </span>
+            <select class="form-control" name="maintainText">
+              <option value="0">
+                กรุณาเลือกช่วง&nbsp;&nbsp;&nbsp;
+              </option>
+              <option value="week">
+                Week
+              </option>
+              <option value="month">
+                Month
+              </option>
+              <option value="ear">
+                Year
+              </option>
+            </select>
           </div>
         </div>
+
         <div class="form-group">
           <label>ประเภทการซ่อม</label>
           <div class="input-group">

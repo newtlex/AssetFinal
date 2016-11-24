@@ -283,7 +283,7 @@ $imageName = "blankImage.png";
         <h4 class="modal-title"><b>เพิ่มชนิดอุปกรณ์</b></h4>
       </div>
       <div class="modal-body">
-        <form action="sql-add-assetvendor.php" method="post">
+        <form action="sql-add-vendor.php" method="post">
           <div class="form-group">
             <label for="Ntype">ชนิดอุปกรณ์</label>
             <input class="form-control" type="text" name="Ntype">

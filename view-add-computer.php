@@ -256,7 +256,7 @@ $imageName = "blankImage.png";
         <h4 class="modal-title"><b>เพิ่มตัวแทนจำหน่าย</b></h4>
       </div>
       <div class="modal-body">
-        <form action="sql-add-assetvendor.php" method="post">
+        <form action="sql-add-vendor.php" method="post">
           <div class="form-group">
             <label for="vendorname">ตัวแทนจำหน่าย</label>
             <input class="form-control" type="text" name="vendorname">

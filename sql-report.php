@@ -102,7 +102,7 @@ $months = array(0=>"", 1=>"มกราคม", "กุมภาพันธ์"
 
 $birth1 = strtotime("{$assetDateStart}");
 $birth2 = strtotime("{$assetDateEnd}");
-
+echo "birth1 $birth1";
 $a1 = date("j-n-Y", $birth1);
 $a2 = date("j-n-Y", $birth2);
 
@@ -203,88 +203,6 @@ else {
     </table>
   </body>
 </html>
-
-<!--echo "<!DOCTYPE html>";
-echo "<html>";
-echo "<head>";
-echo "<meta charset=\"utf-8\">";
-echo "<title></title>";
-echo "</head>";
-echo "<body>";
-echo "<table bordercolor='#000000' border='1' align='center' cellpadding='5' cellspacing='0' bgcolor='steelblue' id=\"colshow\">";
-echo "<caption style='font-size: 20px;'>รายงาน</caption>";
-echo "<thead>";
-echo "<tr>";
-foreach ($columeArray as $key => $value) {
-  if($value == 'assetName'){
-    echo "<th> ชื่อุปกรณ์ </th>";
-  }
-  else  if($value== 'assetID'){
-    echo "<th> วันที่แจ้ง </th>";
-  }
-  else  if($value== 'assetDate'){
-    echo "<th> วันที่แจ้ง </th>";
-  }
-  else  if($value== 'assetPrice'){
-    echo "<th> ราคา </th>";
-  }
-  else  if($value== 'assetExpire'){
-    echo "<th> วันหมดประกัน </th>";
-  }
-  else if($value == 'statusName'){
-    echo "<th>สถานะอุปกรณ์</th>";
-  }
-  else if($value == 'vendorName'){
-    echo "<th>ผู้ขายหรือผลิต </th>";
-  }
-  else {
-    echo "<th> $value </th>";
-  }
-
-}
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
-
-$text ='';
- while($data = mysqli_fetch_array($rs)){
-$text ='';
-echo "<tr>";
-   foreach ($columeArray as $key => $value) {
-     if ($value=='assetDate') {
-       $time = strtotime($data['assetDate']);
-       $myFormatForView = date("Y-m-d", $time);
-       echo "<td>";
-       echo "$myFormatForView";
-       echo "</td>";
-     }else if ($value=='assetExpire') {
-       $time = strtotime($data['assetExpire']);
-       $myFormatForView = date("Y-m-d", $time);
-       echo "<td>";
-       echo "$myFormatForView";
-       echo "</td>";
-     }
-     else {
-        $temp = $data[$value];
-        echo "<td>";
-        echo "$temp";
-        echo "</td>";
-      // $text +="<td>"+{$data[$value]}+"</td>";
-
-     }
-
-   }
-   echo "$text";
-  echo "</tr>";
-}
-
-echo "</tbody>";
-echo "</table>";
-
-
-
-echo "</body>";
-echo "</html>";-->
 
 
 <?php

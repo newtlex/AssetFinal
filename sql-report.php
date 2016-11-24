@@ -218,8 +218,8 @@ $pdf->SetDisplayMode('fullpage');
 
 $pdf->WriteHTML($html, 2);
 
-$pdf->Output("C:\pdf\MyPDF.pdf");     // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
-echo "<a class='btn btn-primary' href=\"MyPDF/MyPDF.pdf\"><span class='glyphicon glyphicon-print'></span> PDF</a>";
+-$pdf->Output("MyPDF/MyPDF.pdf");        // เก็บไฟล์ html ที่แปลงแล้วไว้ใน MyPDF/MyPDF.pdf ถ้าต้องการให้แสด
+echo "ดาวโหลดรายงานในรูปแบบ PDF <a href=\"MyPDF/MyPDF.pdf\">คลิกที่นี้</a>";
   // echo "ID {$data['assetID']}  assetType {$data['assetType']}  assetVendor {$data['vendorName']} assetDATE $myFormatForView<br >";
 
 

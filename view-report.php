@@ -317,8 +317,6 @@
 
 <script type="text/javascript">
 
-
-
 $("#submitReport").click(function(event){
   event.preventDefault();
   console.log( $( '#formAsset' ).serialize() );

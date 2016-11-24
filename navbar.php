@@ -5,6 +5,7 @@ session_start(); ?>
 <?php
 
   include('connect.php');
+  include('head.php');
 
   $id = $_SESSION["idname"];
 
@@ -21,14 +22,6 @@ session_start(); ?>
   //echo "{$data['admin_id']}";
  ?>
 
-
- <style media="screen">
-   .mh{
-     background-color: #f5f5dc;
-     color: #fe6f5e;
-   }
- </style>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -44,7 +37,7 @@ session_start(); ?>
     <ul class="nav navbar-nav navbar-right">
       <?php if ($_SESSION["userType"] == 'admin') { ?>
       <li><a href="main.php?page=view-admin.php"><span class="glyphicon glyphicon-cog"></span> จัดการระบบ</a></li>
-      <?php } ?>    
+      <?php } ?>
       <li><a href="main.php?page=view-edit-profile.php&id=<?php echo "{$_SESSION['idname']}"; ?>"><span class="glyphicon glyphicon-user"></span> คุณ: <?php echo "{$_SESSION["fname"]} {$_SESSION["lname"]}"; ?></a></li>
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>

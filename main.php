@@ -1,7 +1,3 @@
-
-
-
-
  <?php
    session_start();
    if ($_SESSION['fname']){
@@ -12,7 +8,6 @@
    include('navbar.php');
 
    include('config-page.php');
-
 
 
  }

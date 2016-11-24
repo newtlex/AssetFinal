@@ -93,7 +93,7 @@
           รายละเอียด
         </th>
         <th>
-          ช่าง
+          อาการ
         </th>
         <th>
           สถานะ
@@ -104,7 +104,7 @@
       </tr>
     </thead>
     <tbody id="demo">
-
+         <body onload="listMaintain();">
     </tbody>
   </table>
 </div>

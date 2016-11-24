@@ -63,7 +63,7 @@ if(!($_SESSION['status']))
     case 'view-maintain.php':
         include('view-maintain.php');
         break;
-    
+
     default:
       //echo "<h2>Home</h2>";
       include('view-main.php');

@@ -37,62 +37,6 @@
           </label>
         </div>
         <div class="form-group">
-          <label>ช่วงเวลา</label>
-          <select class="form-control" name="">
-            <option value="0">
-              เลือกเดือน..
-            </option>
-            <option value="1">
-              1
-            </option>
-            <option value="2">
-              2
-            </option>
-            <option value="3">
-              3
-            </option>
-            <option value="4">
-              4
-            </option>
-            <option value="5">
-              5
-            </option>
-            <option value="6">
-              6
-            </option>
-            <option value="7">
-              7
-            </option>
-            <option value="8">
-              8
-            </option>
-            <option value="9">
-              9
-            </option>
-            <option value="10">
-              10
-            </option>
-            <option value="11">
-              11
-            </option>
-            <option value="12">
-              12
-            </option>
-          </select>
-        </div>
-        <label>ช่วง...</label>
-        <div class="form-group">
-          <label class="radio-inline">
-            <input type="radio" name="Week" value="1"> Week
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="Month" value="2"> Month
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="Year" value="2"> Year
-          </label>
-        </div>
-        <div class="form-group">
           <label>วันที่ซื่อ</label>
           <div class="input-group">
             <span class="input-group-addon">
@@ -201,60 +145,69 @@
         </div>
         <div class="form-group">
           <label>ช่วงเวลา</label>
-          <select class="form-control" name="">
-            <option value="0">
-              เลือกเดือน..
-            </option>
-            <option value="1">
-              1
-            </option>
-            <option value="2">
-              2
-            </option>
-            <option value="3">
-              3
-            </option>
-            <option value="4">
-              4
-            </option>
-            <option value="5">
-              5
-            </option>
-            <option value="6">
-              6
-            </option>
-            <option value="7">
-              7
-            </option>
-            <option value="8">
-              8
-            </option>
-            <option value="9">
-              9
-            </option>
-            <option value="10">
-              10
-            </option>
-            <option value="11">
-              11
-            </option>
-            <option value="12">
-              12
-            </option>
-          </select>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="checkbox">
+            </span>
+            <select class="form-control" name="maintainNumber">
+              <option value="0">
+                เลือกเดือน...&nbsp;&nbsp;&nbsp;&nbsp;
+              </option>
+              <option value="1">
+                1
+              </option>
+              <option value="2">
+                2
+              </option>
+              <option value="3">
+                3
+              </option>
+              <option value="4">
+                4
+              </option>
+              <option value="5">
+                5
+              </option>
+              <option value="6">
+                6
+              </option>
+              <option value="7">
+                7
+              </option>
+              <option value="8">
+                8
+              </option>
+              <option value="9">
+                9
+              </option>
+              <option value="10">
+                10
+              </option>
+              <option value="11">
+                11
+              </option>
+              <option value="12">
+                12
+              </option>
+            </select>
+            <span class="input-group-addon"> - </span>
+            <select class="form-control" name="maintainText">
+              <option value="0">
+                กรุณาเลือกช่วง&nbsp;&nbsp;&nbsp;
+              </option>
+              <option value="week">
+                Week
+              </option>
+              <option value="month">
+                Month
+              </option>
+              <option value="ear">
+                Year
+              </option>
+            </select>
+          </div>
         </div>
-        <label>ช่วง...</label>
-        <div class="form-group">
-          <label class="radio-inline">
-            <input type="radio" name="Week" value="1"> Week
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="Month" value="2"> Month
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="Year" value="2"> Year
-          </label>
-        </div>
+
         <div class="form-group">
           <label>ประเภทการซ่อม</label>
           <div class="input-group">
@@ -358,8 +311,6 @@
 
 <script type="text/javascript">
 
-
-
 $("#submitReport").click(function(event){
   event.preventDefault();
   console.log( $( '#formAsset' ).serialize() );
@@ -377,7 +328,7 @@ $( "#showMaintain" ).click(function(event){
   $.ajax({
   url: 'sql-reportMaintain.php',
   type: 'POST',
-  dataType: 'text',
+  dataType: 'html',
   data:$('#formMaintian').serialize(),
   success : callback
   });

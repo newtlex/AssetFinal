@@ -152,9 +152,9 @@ else if($assetType==5){
 
     include ("sql-upload.php");
 
-  /*   echo "<script>alert('เพิ่มข้อมูลเรียบร้อย');
+  echo "<script>alert('เพิ่มข้อมูลเรียบร้อย');
         window.location.href = 'main.php';
-      </script>";*/
+      </script>";
     }
   else {
     if($assetType==1) //computer
@@ -239,9 +239,9 @@ else if($assetType==5){
 
     include ("sql-upload.php");
 
-   /*echo "<script>alert('แก้ไขข้อมูล ID : $id เรียบร้อย');
+   echo "<script>alert('แก้ไขข้อมูล ID : $id เรียบร้อย');
       window.location.href = 'main.php';
-    </script>";*/
+    </script>";
   }
 
 

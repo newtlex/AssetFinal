@@ -54,7 +54,7 @@
           <?php include('sql-asset-type.php'); ?>
         </select>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="btn-group">
           <label class="btn btn-info">
             <input type="radio" name="period" value="month1" id="month" data-toggle="button"><span class="glyphicon glyphicon-time"> </span> Month
@@ -70,7 +70,7 @@
           </label>
         </div>
       </div>
-      <div class="col-md-4 col-md-offset-1">
+      <div class="col-md-3 col-md-offset-1">
         <div class="input-group">
           <input id="inputName" type="text" class="form-control" placeholder="Search for..." name="searchName">
           <span class="input-group-btn">

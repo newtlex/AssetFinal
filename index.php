@@ -12,7 +12,10 @@
     </style>
 
     <?php
-    include('view-login.php'); ?>
+    
+    include('view-login.php');
+
+    ?>
 
 
   </body>

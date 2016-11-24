@@ -1,7 +1,6 @@
  <?php
    session_start();
    if ($_SESSION['fname']){
-   include('head.php');
 
    include('connect.php');
 

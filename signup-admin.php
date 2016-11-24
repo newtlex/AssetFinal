@@ -11,9 +11,14 @@ if ($_POST) {
   $psw2 = $_POST['password2'];
   $tel = $_POST['tel'];
   $address = $_POST['address'];
-
-
   $err = "";
+  $sql = "SELECT admin_email from admin where '$email'=admin_email";
+  $rs=mysqli_query($link, $sql);
+
+  if(mysqli_num_rows($rs)){
+    	$err .= "<li>$email ถูกใช้งานเเล้ว</li>";
+  }
+
 	if($psw1 !== $psw2) {
 		$err .= "<li>ใส่รหัสผ่านทั้งสองครั้งไม่ตรงกัน</li>";
 	}

@@ -12,7 +12,7 @@
     </style>
 
     <?php
-    
+
     include('view-login.php');
 
     ?>
